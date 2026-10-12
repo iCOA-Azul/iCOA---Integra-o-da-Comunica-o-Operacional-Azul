@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>iCOA — Comunicações Manutenção</title>
+
+    <link
+        rel="stylesheet"
+        href="manutencao-comunicacoes.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         BARRA SUPERIOR
+    ================================= -->
+
+    <header class="topo">
+
+        <div class="logo">
+
+            <h1>iCOA</h1>
+
+            <span>
+                Integração da Comunicação Operacional Azul
+            </span>
+
+        </div>
+
+
+        <div class="usuario">
+
+            <div class="informacoes-usuario">
+
+                <strong>
+                    MANUTENÇÃO
+                </strong>
+
+                <span>
+                    Setor de Manutenção
+                </span>
+
+            </div>
+
+
+          <a href="../index.html">  <button
+                class="botao-sair"
+                type="button"
+            >
+                Sair
+            </button>  </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================================
+         ESTRUTURA PRINCIPAL
+    ================================= -->
+
+    <div class="estrutura">
+
+
+        <!-- ================================
+             MENU LATERAL
+        ================================= -->
+
+        <aside class="menu">
+
+            <nav>
+
+
+                <!-- INÍCIO -->
+
+                <a href="manutencao.html">
+
+                    
+
+                    <span>
+                        Início
+                    </span>
+
+                </a>
+
+
+                <!-- OCORRÊNCIAS -->
+
+                <a href="#">
+
+                    
+
+                    <span>
+                        Ocorrências
+                    </span>
+
+                </a>
+
+
+                <!-- AVISOS -->
+
+                <a href="#">
+
+                    
+
+                    <span>
+                        Avisos
+                    </span>
+
+                </a>
+
+
+                <!-- COMUNICAÇÕES -->
+
+                <a
+                    href="manutencao-comunicacoes.html"
+                    class="menu-ativo"
+                >
+
+                   
+
+                    <span>
+                        Comunicações
+                    </span>
+
+                    <span
+                        class="badge-menu"
+                        id="badgeMenu"
+                    ></span>
+
+                </a>
+
+
+                <!-- HISTÓRICO -->
+
+                <a href="../historico.html">
+
+                    
+
+                    <span>
+                        Histórico
+                    </span>
+
+                </a>
+
+
+            </nav>
+
+        </aside>
+
+
+
+        <!-- ================================
+             CONTEÚDO
+        ================================= -->
+
+        <main class="conteudo">
+
+
+            <!-- ================================
+                 TÍTULO
+            ================================= -->
+
+            <div class="titulo-pagina">
+
+                <div>
+
+                    <h2>
+                        Comunicações
+                    </h2>
+
+                    <p>
+                        Comunicação direta com o CCO.
+                    </p>
+
+                </div>
+
+
+                <div class="status-sistema">
+
+                    <span class="bolinha"></span>
+
+                    Sistema operacional
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================================
+                 ÁREA DE COMUNICAÇÃO
+            ================================= -->
+
+            <section class="area-comunicacao">
+
+
+                <!-- ================================
+                     ÁREA DO CCO
+                ================================= -->
+
+                <aside class="lista-areas">
+
+                    <div class="cabecalho-lista">
+
+                        <h3>
+                            Comunicação
+                        </h3>
+
+                        <p>
+                            Áreas disponíveis para comunicação.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="area-comunicacao-item ativo"
+                        data-area="CCO"
+                    >
+
+                        <span class="icone-area">
+                            🏢
+                        </span>
+
+
+                        <span class="informacoes-area">
+
+                            <strong>
+                                CCO
+                            </strong>
+
+                            <small>
+                                Centro de Controle Operacional
+                            </small>
+
+                        </span>
+
+
+                        <span
+                            class="badge-mensagens"
+                            id="badgeCCO"
+                        ></span>
+
+                    </button>
+
+                </aside>
+
+
+
+                <!-- ================================
+                     CONVERSA
+                ================================= -->
+
+                <div class="conversa">
+
+
+                    <!-- CABEÇALHO -->
+
+                    <header class="cabecalho-conversa">
+
+                        <div class="informacoes-conversa">
+
+                            <div
+                                class="icone-conversa"
+                                id="iconeConversa"
+                            >
+                                🏢
+                            </div>
+
+
+                            <div>
+
+                                <h3 id="nomeArea">
+                                    CCO
+                                </h3>
+
+                                <p id="descricaoArea">
+                                    Comunicação com o Centro de
+                                    Controle Operacional.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </header>
+
+
+
+                    <!-- ================================
+                         MENSAGENS
+                    ================================= -->
+
+                    <div
+                        class="lista-mensagens"
+                        id="listaMensagens"
+                    ></div>
+
+
+
+                    <!-- ================================
+                         CAMPO DE MENSAGEM
+                    ================================= -->
+
+                    <form
+                        class="campo-mensagem"
+                        id="formMensagem"
+                    >
+
+                        <textarea
+                            id="mensagem"
+                            placeholder="Digite sua mensagem..."
+                            rows="3"
+                        ></textarea>
+
+
+                        <div class="rodape-mensagem">
+
+                            <span id="informacaoMensagem">
+                                Enviando como Manutenção
+                            </span>
+
+
+                            <button
+                                type="submit"
+                                class="botao-enviar"
+                                id="botaoEnviar"
+                            >
+                                Enviar
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
+    <script type="module" src="manutencao-comunicacoes.js"></script>
+
+</body>
+
+</html>

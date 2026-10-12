@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>iCOA — CCO</title>
+
+<link rel="stylesheet" href="CCO.css">
+
+</head>
+
+<body>
+
+<!-- BARRA SUPERIOR -->
+
+<header class="topo">
+
+    <div class="logo">
+        <h1>iCOA</h1>
+        <span>Integração da Comunicação Operacional Azul</span>
+    </div>
+
+    <div class="usuario">
+
+        <div class="informacoes-usuario">
+            <strong>CCO</strong>
+            <span>Centro de Controle Operacional</span>
+        </div>
+
+       <a href="../index.html"><button class="botao-sair" >Sair</button></a> 
+
+    </div>
+
+</header>
+
+
+<!-- ESTRUTURA PRINCIPAL -->
+
+<div class="estrutura">
+
+
+    <!-- MENU LATERAL -->
+
+    <aside class="menu">
+
+        <nav>
+
+            <a href="#" class="menu-ativo">
+                
+                <span>Início</span>
+            </a>
+
+            <a href="#">
+                
+                <span>Ocorrências</span>
+            </a>
+
+            <a href="#">
+                
+                <span>Avisos</span>
+            </a>
+
+            <a href="CCO-comunicacoes.html">
+                
+                <span>Comunicações</span>
+            </a>
+
+            <a href="../historico.html">
+              
+                <span>Histórico</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- CONTEÚDO -->
+
+    <main class="conteudo">
+
+        <div class="titulo-pagina">
+
+            <div>
+                <h2>Centro de Controle Operacional</h2>
+                <p>Acompanhamento das ocorrências operacionais</p>
+            </div>
+
+            <div class="status-sistema">
+                <span class="bolinha"></span>
+                Sistema operacional
+            </div>
+
+        </div>
+
+
+        <!-- CARDS DE RESUMO -->
+
+        <section class="resumo">
+
+            <div class="card-resumo">
+
+                <span class="icone">🚨</span>
+
+                <div>
+                    <span class="numero">00</span>
+                    <p>Ocorrências ativas</p>
+                </div>
+
+            </div>
+
+
+        
+           <div class="card-resumo">
+           <span class="icone">💬</span>
+            <div>
+             <span class="numero" id="contadorMensagensNaoLidas">00</span>
+              <p>Mensagens não lidas</p>
+             </div>
+            </div>
+
+
+
+            <div class="card-resumo">
+
+                <span class="icone">📋</span>
+
+                <div>
+                    <span class="numero">00</span>
+                    <p>Ocorrências no histórico</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- OCORRÊNCIAS -->
+
+        <section class="secao">
+
+            <div class="cabecalho-secao">
+
+                <div>
+                    <h3>Ocorrências ativas</h3>
+                    <p>Acompanhe as ocorrências que necessitam de atenção.</p>
+                </div>
+
+                <button class="botao-principal">
+                    + Nova ocorrência
+                </button>
+
+            </div>
+
+
+            <div class="lista-ocorrencias" id="listaOcorrencias">
+
+                <!-- MENSAGEM QUANDO NÃO EXISTEM OCORRÊNCIAS -->
+
+                <div class="sem-ocorrencias" id="semOcorrencias">
+
+                    <div class="icone-vazio">
+                        🚨
+                    </div>
+
+                    <h4>
+                        Nenhuma ocorrência ativa
+                    </h4>
+
+                    <p>
+                        Novas ocorrências registradas pela manutenção
+                        aparecerão nesta área.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AVISOS -->
+
+        <section class="secao">
+
+            <div class="cabecalho-secao">
+
+                <div>
+
+                    <h3>
+                        Avisos
+                    </h3>
+
+                    <p>
+                        Informações importantes para o Centro de Controle Operacional.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="sem-ocorrencias">
+
+                <div class="icone-vazio">
+                    🔔
+                </div>
+
+                <h4>
+                    Nenhum aviso novo
+                </h4>
+
+                <p>
+                    Novos avisos enviados pelas áreas envolvidas
+                    aparecerão aqui.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script type="module" src="CCO.js"></script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,926 @@
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   BODY
+======================================== */
+
+body {
+    font-family: Arial, sans-serif;
+
+    background: #f4f6f8;
+
+    color: #1d2939;
+}
+
+
+/* ========================================
+   BARRA SUPERIOR
+======================================== */
+
+.topo {
+    height: 75px;
+
+    background: #003B70;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 35px;
+}
+
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.logo h1 {
+    font-size: 34px;
+
+    letter-spacing: 1px;
+}
+
+
+.logo span {
+    font-size: 13px;
+
+    opacity: 0.85;
+}
+
+
+.usuario {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.informacoes-usuario {
+    display: flex;
+
+    flex-direction: column;
+
+    text-align: right;
+}
+
+
+.informacoes-usuario strong {
+    font-size: 15px;
+}
+
+
+.informacoes-usuario span {
+    font-size: 11px;
+
+    opacity: 0.8;
+}
+
+
+.botao-sair {
+    background: transparent;
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+
+    color: white;
+
+    padding: 8px 16px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+
+.botao-sair:hover {
+    background: white;
+
+    color: #003B70;
+}
+
+
+/* ========================================
+   ESTRUTURA
+======================================== */
+
+.estrutura {
+    display: flex;
+
+    min-height: calc(100vh - 75px);
+}
+
+
+/* ========================================
+   MENU LATERAL
+======================================== */
+
+.menu {
+    width: 230px;
+
+    background: white;
+
+    border-right: 1px solid #e2e8f0;
+
+    padding: 25px 15px;
+}
+
+
+.menu nav {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.menu a {
+    text-decoration: none;
+
+    color: #475467;
+
+    padding: 13px 15px;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 14px;
+}
+
+
+.menu a:hover {
+    background: #eef5fa;
+
+    color: #003B70;
+}
+
+
+.menu a.menu-ativo {
+    background: #e7f1f8;
+
+    color: #003B70;
+
+    font-weight: bold;
+}
+
+
+/* ========================================
+   CONTEÚDO
+======================================== */
+
+.conteudo {
+    flex: 1;
+
+    padding: 35px;
+
+    max-width: 1500px;
+}
+
+
+/* ========================================
+   TÍTULO DA PÁGINA
+======================================== */
+
+.titulo-pagina {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+
+.titulo-pagina h2 {
+    color: #003B70;
+
+    font-size: 25px;
+
+    margin-bottom: 5px;
+}
+
+
+.titulo-pagina p {
+    color: #667085;
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   STATUS DO SISTEMA
+======================================== */
+
+.status-sistema {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background: white;
+
+    padding: 9px 14px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    color: #475467;
+
+    border: 1px solid #e2e8f0;
+}
+
+
+.bolinha {
+    width: 9px;
+
+    height: 9px;
+
+    background: #12b76a;
+
+    border-radius: 50%;
+}
+
+
+/* ========================================
+   ÁREA DE COMUNICAÇÃO
+======================================== */
+
+.area-comunicacao {
+    display: grid;
+
+    grid-template-columns: 300px 1fr;
+
+    min-height: 600px;
+
+    background: white;
+
+    border: 1px solid #e4e7ec;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   LISTA DE ÁREAS
+======================================== */
+
+.lista-areas {
+    background: #ffffff;
+
+    border-right: 1px solid #e4e7ec;
+
+    padding: 20px 15px;
+}
+
+
+.cabecalho-lista {
+    padding: 5px 10px 18px;
+
+    border-bottom: 1px solid #e4e7ec;
+
+    margin-bottom: 10px;
+}
+
+
+.cabecalho-lista h3 {
+    color: #003B70;
+
+    font-size: 18px;
+
+    margin-bottom: 5px;
+}
+
+
+.cabecalho-lista p {
+    color: #667085;
+
+    font-size: 12px;
+}
+
+
+/* ========================================
+   BOTÕES DAS ÁREAS
+======================================== */
+
+.area-comunicacao-item {
+    width: 100%;
+
+    background: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 13px 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    margin-bottom: 5px;
+}
+
+
+.area-comunicacao-item:hover {
+    background: #f4f8fb;
+}
+
+
+.area-comunicacao-item.ativo {
+    background: #e7f1f8;
+
+    color: #003B70;
+}
+
+
+/* ========================================
+   ÍCONE DA ÁREA
+======================================== */
+
+.icone-area {
+    width: 40px;
+
+    height: 40px;
+
+    background: #f2f4f7;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 20px;
+
+    flex-shrink: 0;
+}
+
+
+.area-comunicacao-item.ativo .icone-area {
+    background: white;
+}
+
+
+/* ========================================
+   INFORMAÇÕES DA ÁREA
+======================================== */
+
+.informacoes-area {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.informacoes-area strong {
+    color: #344054;
+
+    font-size: 14px;
+}
+
+
+.area-comunicacao-item.ativo
+.informacoes-area strong {
+    color: #003B70;
+}
+
+
+.informacoes-area small {
+    color: #667085;
+
+    font-size: 11px;
+}
+
+
+/* ========================================
+   BADGE DE MENSAGENS
+======================================== */
+
+.badge-mensagens {
+    min-width: 20px;
+
+    height: 20px;
+
+    padding: 0 6px;
+
+    background: #d92d20;
+
+    color: white;
+
+    border-radius: 20px;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 10px;
+
+    font-weight: bold;
+}
+
+
+.badge-mensagens:not(:empty) {
+    display: flex;
+}
+
+
+/* ========================================
+   ÁREA DA CONVERSA
+======================================== */
+
+.conversa {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+    background: #f8fafc;
+}
+
+
+/* ========================================
+   CABEÇALHO DA CONVERSA
+======================================== */
+
+.cabecalho-conversa {
+    background: white;
+
+    border-bottom: 1px solid #e4e7ec;
+
+    padding: 18px 22px;
+}
+
+
+.informacoes-conversa {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.icone-conversa {
+    width: 45px;
+
+    height: 45px;
+
+    background: #e7f1f8;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+
+.informacoes-conversa h3 {
+    color: #003B70;
+
+    font-size: 17px;
+
+    margin-bottom: 4px;
+}
+
+
+.informacoes-conversa p {
+    color: #667085;
+
+    font-size: 12px;
+}
+
+
+/* ========================================
+   LISTA DE MENSAGENS
+======================================== */
+
+.lista-mensagens {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+/* ========================================
+   CONVERSA VAZIA
+======================================== */
+
+.conversa-vazia {
+    margin: auto;
+
+    text-align: center;
+
+    max-width: 400px;
+}
+
+
+.icone-vazio {
+    font-size: 40px;
+
+    margin-bottom: 12px;
+}
+
+
+.conversa-vazia h4 {
+    color: #344054;
+
+    font-size: 16px;
+
+    margin-bottom: 7px;
+}
+
+
+.conversa-vazia p {
+    color: #667085;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   MENSAGEM
+======================================== */
+
+.mensagem {
+    max-width: 70%;
+
+    padding: 11px 14px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+.mensagem-recebida {
+    align-self: flex-start;
+
+    background: white;
+
+    border: 1px solid #e4e7ec;
+
+    border-bottom-left-radius: 3px;
+}
+
+
+.mensagem-enviada {
+    align-self: flex-end;
+
+    background: #003B70;
+
+    color: white;
+
+    border-bottom-right-radius: 3px;
+}
+
+
+.mensagem strong {
+    display: block;
+
+    font-size: 11px;
+
+    margin-bottom: 4px;
+}
+
+
+.mensagem-enviada strong {
+    color: #dceeff;
+}
+
+
+.mensagem small {
+    display: block;
+
+    margin-top: 6px;
+
+    font-size: 10px;
+
+    opacity: 0.65;
+
+    text-align: right;
+}
+
+
+/* ========================================
+   CAMPO DE MENSAGEM
+======================================== */
+
+.campo-mensagem {
+    background: white;
+
+    border-top: 1px solid #e4e7ec;
+
+    padding: 15px 20px;
+}
+
+
+.campo-mensagem textarea {
+    width: 100%;
+
+    resize: none;
+
+    border: 1px solid #d0d5dd;
+
+    border-radius: 8px;
+
+    padding: 11px 12px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    outline: none;
+
+    min-height: 75px;
+}
+
+
+.campo-mensagem textarea:focus {
+    border-color: #003B70;
+}
+
+
+.campo-mensagem textarea:disabled {
+    background: #f2f4f7;
+
+    cursor: not-allowed;
+}
+
+
+/* ========================================
+   RODAPÉ DA MENSAGEM
+======================================== */
+
+.rodape-mensagem {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 10px;
+}
+
+
+#informacaoMensagem {
+    color: #667085;
+
+    font-size: 11px;
+}
+
+
+/* ========================================
+   BOTÃO ENVIAR
+======================================== */
+
+.botao-enviar {
+    background: #003B70;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 7px;
+
+    padding: 10px 20px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+.botao-enviar:hover {
+    background: #00284d;
+}
+
+
+.botao-enviar:disabled {
+    background: #98a2b3;
+
+    cursor: not-allowed;
+}
+
+
+/* ========================================
+   SCROLL DA CONVERSA
+======================================== */
+
+.lista-mensagens::-webkit-scrollbar {
+    width: 7px;
+}
+
+
+.lista-mensagens::-webkit-scrollbar-track {
+    background: #f2f4f7;
+}
+
+
+.lista-mensagens::-webkit-scrollbar-thumb {
+    background: #cfd4dc;
+
+    border-radius: 10px;
+}
+
+
+.lista-mensagens::-webkit-scrollbar-thumb:hover {
+    background: #98a2b3;
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .logo span {
+        display: none;
+    }
+
+    .informacoes-usuario {
+        display: none;
+    }
+
+    .area-comunicacao {
+        grid-template-columns: 240px 1fr;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .topo {
+        padding: 0 18px;
+    }
+
+
+    .estrutura {
+        flex-direction: column;
+    }
+
+
+    .menu {
+        width: 100%;
+
+        padding: 10px;
+
+        border-right: none;
+
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+
+    .menu nav {
+        flex-direction: row;
+
+        overflow-x: auto;
+    }
+
+
+    .menu a {
+        white-space: nowrap;
+    }
+
+
+    .conteudo {
+        padding: 20px 15px;
+    }
+
+
+    .titulo-pagina {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
+    .area-comunicacao {
+        grid-template-columns: 1fr;
+
+        min-height: auto;
+    }
+
+
+    .lista-areas {
+        border-right: none;
+
+        border-bottom: 1px solid #e4e7ec;
+
+        max-height: 280px;
+
+        overflow-y: auto;
+    }
+
+
+    .conversa {
+        min-height: 500px;
+    }
+
+
+    .mensagem {
+        max-width: 85%;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .cabecalho-conversa {
+        padding: 15px;
+    }
+
+
+    .lista-mensagens {
+        padding: 15px;
+    }
+
+
+    .campo-mensagem {
+        padding: 12px;
+    }
+
+
+    .rodape-mensagem {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .botao-enviar {
+        width: 100%;
+    }
+
+}

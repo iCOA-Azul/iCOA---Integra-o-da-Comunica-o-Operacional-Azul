@@ -1,0 +1,546 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+body {
+font-family: Arial, sans-serif;
+background: #f4f6f8;
+color: #1d2939;
+}
+
+/* BARRA SUPERIOR */
+
+.topo {
+height: 75px;
+background: #003B70;
+color: white;
+
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+padding: 0 35px;
+
+
+}
+
+.logo {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.logo h1 {
+font-size: 34px;
+letter-spacing: 1px;
+}
+
+.logo span {
+font-size: 13px;
+opacity: 0.85;
+}
+
+.usuario {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+
+.informacoes-usuario {
+display: flex;
+flex-direction: column;
+text-align: right;
+}
+
+.informacoes-usuario strong {
+font-size: 15px;
+}
+
+.informacoes-usuario span {
+font-size: 11px;
+opacity: 0.8;
+}
+
+.botao-sair {
+background: transparent;
+border: 1px solid rgba(255, 255, 255, 0.6);
+color: white;
+
+
+padding: 8px 16px;
+border-radius: 6px;
+
+cursor: pointer;
+
+
+}
+
+.botao-sair:hover {
+background: white;
+color: #003B70;
+}
+
+/* ESTRUTURA */
+
+.estrutura {
+display: flex;
+min-height: calc(100vh - 75px);
+}
+
+/* MENU */
+
+.menu {
+width: 230px;
+background: white;
+border-right: 1px solid #e2e8f0;
+
+
+padding: 25px 15px;
+
+
+}
+
+.menu nav {
+display: flex;
+flex-direction: column;
+gap: 7px;
+}
+
+.menu a {
+text-decoration: none;
+color: #475467;
+
+
+padding: 13px 15px;
+
+border-radius: 8px;
+
+display: flex;
+align-items: center;
+gap: 12px;
+
+font-size: 14px;
+
+
+}
+
+.menu a:hover {
+background: #eef5fa;
+color: #003B70;
+}
+
+.menu a.menu-ativo {
+background: #e7f1f8;
+color: #003B70;
+font-weight: bold;
+}
+
+/* CONTEÚDO */
+
+.conteudo {
+flex: 1;
+padding: 35px;
+max-width: 1500px;
+}
+
+/* TÍTULO */
+
+.titulo-pagina {
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+
+margin-bottom: 30px;
+
+
+}
+
+.titulo-pagina h2 {
+color: #003B70;
+font-size: 25px;
+margin-bottom: 5px;
+}
+
+.titulo-pagina p {
+color: #667085;
+font-size: 14px;
+}
+
+.status-sistema {
+display: flex;
+align-items: center;
+gap: 8px;
+
+
+background: white;
+padding: 9px 14px;
+
+border-radius: 20px;
+
+font-size: 12px;
+color: #475467;
+
+border: 1px solid #e2e8f0;
+
+
+}
+
+.bolinha {
+width: 9px;
+height: 9px;
+
+
+background: #12b76a;
+
+border-radius: 50%;
+
+
+}
+
+/* CARDS */
+
+.resumo {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+
+
+margin-bottom: 30px;
+
+
+}
+
+.card-resumo {
+background: white;
+
+
+border: 1px solid #e4e7ec;
+border-radius: 10px;
+
+padding: 22px;
+
+display: flex;
+align-items: center;
+gap: 17px;
+
+
+}
+
+.icone {
+font-size: 28px;
+}
+
+.numero {
+font-size: 26px;
+font-weight: bold;
+color: #003B70;
+}
+
+.card-resumo p {
+color: #667085;
+font-size: 13px;
+margin-top: 3px;
+}
+
+/* SEÇÕES */
+
+.secao {
+background: white;
+
+
+border: 1px solid #e4e7ec;
+border-radius: 10px;
+
+padding: 25px;
+
+margin-bottom: 20px;
+
+
+}
+
+.cabecalho-secao {
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+
+margin-bottom: 20px;
+
+
+}
+
+.cabecalho-secao h3 {
+color: #003B70;
+font-size: 19px;
+margin-bottom: 5px;
+}
+
+.cabecalho-secao p {
+color: #667085;
+font-size: 13px;
+}
+
+/* ÁREA VAZIA */
+
+.sem-ocorrencias {
+text-align: center;
+
+
+padding: 45px 20px;
+
+border: 1px dashed #d0d5dd;
+border-radius: 8px;
+
+background: #fafbfc;
+
+
+}
+
+.icone-vazio {
+font-size: 35px;
+margin-bottom: 12px;
+}
+
+.sem-ocorrencias h4 {
+color: #344054;
+margin-bottom: 7px;
+}
+
+.sem-ocorrencias p {
+color: #667085;
+font-size: 13px;
+
+
+max-width: 550px;
+margin: auto;
+
+line-height: 1.5;
+
+
+}
+
+
+
+/* ============================= */
+/* CARDS DE OCORRÊNCIAS */
+/* ============================= */
+
+.lista-ocorrencias {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ocorrencia {
+    border: 1px solid #e4e7ec;
+    border-radius: 8px;
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    background: white;
+}
+
+/* BARRA DE GRAVIDADE */
+
+.status-ocorrencia {
+    width: 5px;
+    align-self: stretch;
+    border-radius: 10px;
+}
+
+.vermelho {
+    background: #d92d20;
+}
+
+.amarelo {
+    background: #f79009;
+}
+
+.verde {
+    background: #12b76a;
+}
+
+/* INFORMAÇÕES DA OCORRÊNCIA */
+
+.informacoes-ocorrencia {
+    flex: 1;
+}
+
+.linha-superior {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 5px;
+}
+
+.linha-superior strong {
+    color: #003B70;
+    font-size: 15px;
+}
+
+/* STATUS */
+
+.status {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 20px;
+}
+
+.texto-vermelho {
+    color: #b42318;
+    background: #fef3f2;
+}
+
+.texto-amarelo {
+    color: #b54708;
+    background: #fffaeb;
+}
+
+.texto-verde {
+    color: #027a48;
+    background: #ecfdf3;
+}
+
+/* TIPO */
+
+.informacoes-ocorrencia h4 {
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: #344054;
+}
+
+/* DESCRIÇÃO */
+
+.informacoes-ocorrencia p {
+    color: #667085;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* DETALHES */
+
+.detalhes {
+    display: flex;
+    gap: 15px;
+    margin-top: 12px;
+
+    color: #667085;
+    font-size: 12px;
+}
+
+/* BOTÃO VER DETALHES */
+
+.botao-ver {
+    background: white;
+
+    border: 1px solid #003B70;
+
+    color: #003B70;
+
+    padding: 9px 14px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+.botao-ver:hover {
+    background: #003B70;
+    color: white;
+}
+
+
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+
+
+.resumo {
+    grid-template-columns: 1fr;
+}
+
+.logo span {
+    display: none;
+}
+
+.informacoes-usuario {
+    display: none;
+}
+
+
+}
+
+@media (max-width: 650px) {
+
+
+.topo {
+    padding: 0 18px;
+}
+
+.estrutura {
+    flex-direction: column;
+}
+
+.menu {
+    width: 100%;
+    padding: 10px;
+
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.menu nav {
+    flex-direction: row;
+    overflow-x: auto;
+}
+
+.menu a {
+    white-space: nowrap;
+}
+
+.conteudo {
+    padding: 20px 15px;
+}
+
+.titulo-pagina {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.cabecalho-secao {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+
+
+/* CARDS NO CELULAR */
+
+.ocorrencia {
+    align-items: flex-start;
+}
+
+.botao-ver {
+    display: none;
+}
+
+.detalhes {
+    flex-direction: column;
+    gap: 5px;
+}
+
+}

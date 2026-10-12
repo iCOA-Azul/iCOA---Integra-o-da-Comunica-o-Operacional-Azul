@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>iCOA — Comunicações CCO</title>
+
+    <link rel="stylesheet" href="CCO-comunicacoes.css">
+
+
+</head>
+
+
+<body>
+
+
+
+    <!-- ================================
+         BARRA SUPERIOR
+    ================================= -->
+
+    <header class="topo">
+
+        <div class="logo">
+
+            <h1>iCOA</h1>
+
+            <span>
+                Integração da Comunicação Operacional Azul
+            </span>
+
+        </div>
+
+
+        <div class="usuario">
+
+            <div class="informacoes-usuario">
+
+                <strong>
+                    CCO
+                </strong>
+
+                <span>
+                    Centro de Controle Operacional
+                </span>
+
+            </div>
+
+
+          <!---- <a href="../index.html"> <button class="area-comunicacao-item" data-area="Manutenção">      Sair
+            </button> </a> -->
+            
+          <a href="../index.html" class="botao-sair">Sair</a>
+
+            
+           
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================================
+         ESTRUTURA PRINCIPAL
+    ================================= -->
+
+    <div class="estrutura">
+
+
+        <!-- ================================
+             MENU LATERAL
+        ================================= -->
+
+        <aside class="menu">
+
+            <nav>
+
+
+                <!-- INÍCIO -->
+
+                <a href="CCO.html">
+
+                   
+
+                    <span>
+                        Início
+                    </span>
+
+                </a>
+
+
+                <!-- OCORRÊNCIAS -->
+
+                <a href="#">
+
+                    
+
+                    <span>
+                        Ocorrências
+                    </span>
+
+                </a>
+
+
+                <!-- AVISOS -->
+
+                <a href="#">
+
+                    
+                    <span>
+                        Avisos
+                    </span>
+
+                </a>
+
+
+                <!-- COMUNICAÇÕES -->
+
+                <a
+                    href="CCO-comunicacoes.html"
+                    class="menu-ativo"
+                >
+
+                    
+
+                    <span>
+                        Comunicações
+                    </span>
+
+                </a>
+
+
+                <!-- HISTÓRICO -->
+
+                <a href="../historico.html">
+
+                    
+
+                    <span>
+                        Histórico
+                    </span>
+
+                </a>
+
+
+            </nav>
+
+        </aside>
+
+
+
+        <!-- ================================
+             CONTEÚDO
+        ================================= -->
+
+        <main class="conteudo">
+
+
+            <!-- ================================
+                 TÍTULO DA PÁGINA
+            ================================= -->
+
+            <div class="titulo-pagina">
+
+                <div>
+
+                    <h2>
+                        Comunicações
+                    </h2>
+
+                    <p>
+                        Comunicação direta com as áreas operacionais.
+                    </p>
+
+                </div>
+
+
+                <div class="status-sistema">
+
+                    <span class="bolinha"></span>
+
+                    Sistema operacional
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================================
+                 ÁREA DE COMUNICAÇÃO
+            ================================= -->
+
+            <section class="area-comunicacao">
+
+
+                <!-- ================================
+                     LISTA DE ÁREAS
+                ================================= -->
+
+                <aside class="lista-areas">
+
+
+                    <div class="cabecalho-lista">
+
+                        <h3>
+                            Áreas
+                        </h3>
+
+                        <p>
+                            Selecione uma área para conversar.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- MANUTENÇÃO -->
+
+                    <button
+                        type="button"
+                        class="area-comunicacao-item"
+                        data-area="Manutenção"
+                    >
+
+                        <span class="icone-area">
+                            🔧
+                        </span>
+
+
+                        <span class="informacoes-area">
+
+                            <strong>
+                                Manutenção
+                            </strong>
+
+                            <small>
+                                Setor de Manutenção
+                            </small>
+
+                        </span>
+
+
+                        <span
+                            class="badge-mensagens"
+                            id="badgeManutencao"
+                        ></span>
+
+                    </button>
+
+
+
+                    <!-- ATENDIMENTO -->
+
+                    <button
+                        type="button"
+                        class="area-comunicacao-item"
+                        data-area="Atendimento"
+                    >
+
+                        <span class="icone-area">
+                            🎧
+                        </span>
+
+
+                        <span class="informacoes-area">
+
+                            <strong>
+                                Atendimento
+                            </strong>
+
+                            <small>
+                                Atendimento ao cliente
+                            </small>
+
+                        </span>
+
+
+                        <span
+                            class="badge-mensagens"
+                            id="badgeAtendimento"
+                        ></span>
+
+                    </button>
+
+
+
+                    <!-- HANDLING -->
+
+                    <button
+                        type="button"
+                        class="area-comunicacao-item"
+                        data-area="Handling"
+                    >
+
+                        <span class="icone-area">
+                            🧳
+                        </span>
+
+
+                        <span class="informacoes-area">
+
+                            <strong>
+                                Handling
+                            </strong>
+
+                            <small>
+                                Operações em solo
+                            </small>
+
+                        </span>
+
+
+                        <span
+                            class="badge-mensagens"
+                            id="badgeHandling"
+                        ></span>
+
+                    </button>
+
+
+
+                    <!-- COMERCIAL -->
+
+                    <button
+                        type="button"
+                        class="area-comunicacao-item"
+                        data-area="Comercial"
+                    >
+
+                        <span class="icone-area">
+                            💼
+                        </span>
+
+
+                        <span class="informacoes-area">
+
+                            <strong>
+                                Comercial
+                            </strong>
+
+                            <small>
+                                Setor Comercial
+                            </small>
+
+                        </span>
+
+
+                        <span
+                            class="badge-mensagens"
+                            id="badgeComercial"
+                        ></span>
+
+                    </button>
+
+
+                </aside>
+
+
+
+                <!-- ================================
+                     ÁREA DA CONVERSA
+                ================================= -->
+
+                <div class="conversa">
+
+
+                    <!-- CABEÇALHO DA CONVERSA -->
+
+                    <header class="cabecalho-conversa">
+
+                        <div class="informacoes-conversa">
+
+                            <div
+                                class="icone-conversa"
+                                id="iconeConversa"
+                            >
+                                💬
+                            </div>
+
+
+                            <div>
+
+                                <h3 id="nomeArea">
+                                    Selecione uma área
+                                </h3>
+
+                                <p id="descricaoArea">
+                                    Escolha uma área para iniciar uma comunicação.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </header>
+
+
+
+                    <!-- ================================
+                         MENSAGENS
+                    ================================= -->
+
+                    <div
+                        class="lista-mensagens"
+                        id="listaMensagens"
+                    >
+
+
+                        <!-- ESTADO INICIAL -->
+
+                        <div
+                            class="conversa-vazia"
+                            id="conversaVazia"
+                        >
+
+                            <div class="icone-vazio">
+                                💬
+                            </div>
+
+
+                            <h4>
+                                Nenhuma conversa selecionada
+                            </h4>
+
+
+                            <p>
+                                Selecione uma área ao lado
+                                para visualizar e enviar mensagens.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ================================
+                         CAMPO DE MENSAGEM
+                    ================================= -->
+
+                    <form
+                        class="campo-mensagem"
+                        id="formMensagem"
+                    >
+
+
+                        <textarea
+                            id="mensagem"
+                            placeholder="Digite sua mensagem..."
+                            rows="3"
+                            disabled
+                        ></textarea>
+
+
+                        <div class="rodape-mensagem">
+
+                            <span id="informacaoMensagem">
+                                Selecione uma área para enviar uma mensagem.
+                            </span>
+
+
+                            <button
+                                type="submit"
+                                class="botao-enviar"
+                                id="botaoEnviar"
+                                disabled
+                            >
+                                Enviar
+                            </button>
+
+                        </div>
+
+                    </form>
+
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
+   <script type="module" src="CCO-comunicacoes.js"></script>
+
+
+</body>
+
+</html>

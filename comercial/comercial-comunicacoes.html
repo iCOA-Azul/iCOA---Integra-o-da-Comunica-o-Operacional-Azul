@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>iCOA — Comunicações Comercial</title>
+
+    <link rel="stylesheet" href="comercial-comunicacoes.css">
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <div class="logo">
+            <h1>iCOA</h1>
+            <span>Integração da Comunicação Operacional Azul</span>
+        </div>
+
+        <div class="usuario">
+
+            <div class="informacoes-usuario">
+                <strong>Comercial</strong>
+                <span>Setor Comercial</span>
+            </div>
+
+         <a href="../index.html">   <button class="botao-sair" type="button">
+                Sair
+            </button>   </a>
+
+        </div>
+
+    </header>
+
+
+    <div class="estrutura">
+
+        <aside class="menu">
+
+            <nav>
+
+                <a href="comercial.html">
+                    
+                    <span>Início</span>
+                </a>
+
+                <a href="#">
+                   
+                    <span>Ocorrências</span>
+                </a>
+
+                <a href="#">
+                    
+                    <span>Avisos</span>
+                </a>
+
+                <a href="comercial-comunicacoes.html" class="menu-ativo">
+                    
+                    <span>Comunicações</span>
+
+                    <span class="badge-menu" id="badgeMenu"></span>
+                </a>
+
+                <a href="../historico.html">
+                    
+                    <span>Histórico</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <main class="conteudo">
+
+            <div class="titulo-pagina">
+
+                <div>
+
+                    <h2>Comunicações</h2>
+
+                    <p>
+                        Comunicação direta com o CCO.
+                    </p>
+
+                </div>
+
+
+                <div class="status-sistema">
+
+                    <span class="bolinha"></span>
+
+                    Sistema operacional
+
+                </div>
+
+            </div>
+
+
+            <section class="area-comunicacao">
+
+
+                <aside class="lista-areas">
+
+                    <div class="cabecalho-lista">
+
+                        <h3>Comunicação</h3>
+
+                        <p>
+                            Selecione uma área para conversar.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="area-comunicacao-item selecionada"
+                        data-area="CCO">
+
+                        <span class="icone-area">
+                            🏢
+                        </span>
+
+                        <span class="informacoes-area">
+
+                            <strong>CCO</strong>
+
+                            <small>
+                                Centro de Controle Operacional
+                            </small>
+
+                        </span>
+
+                        <span
+                            class="badge-mensagens"
+                            id="badgeCCO">
+                        </span>
+
+                    </button>
+
+                </aside>
+
+
+                <div class="conversa">
+
+
+                    <header class="cabecalho-conversa">
+
+                        <div class="informacoes-conversa">
+
+                            <div
+                                class="icone-conversa"
+                                id="iconeConversa">
+                                🏢
+                            </div>
+
+                            <div>
+
+                                <h3 id="nomeArea">
+                                    CCO
+                                </h3>
+
+                                <p id="descricaoArea">
+                                    Centro de Controle Operacional
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </header>
+
+
+                    <div
+                        class="lista-mensagens"
+                        id="listaMensagens">
+
+                        <div
+                            class="conversa-vazia"
+                            id="conversaVazia">
+
+                            <div class="icone-vazio">
+                                💬
+                            </div>
+
+                            <h4>
+                                Nenhuma mensagem
+                            </h4>
+
+                            <p>
+                                A comunicação com o CCO aparecerá aqui.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <form
+                        class="campo-mensagem"
+                        id="formMensagem">
+
+                        <textarea
+                            id="mensagem"
+                            placeholder="Digite sua mensagem..."
+                            rows="3"></textarea>
+
+
+                        <div class="rodape-mensagem">
+
+                            <span id="informacaoMensagem">
+                                Comunicação com o CCO
+                            </span>
+
+                            <button
+                                type="submit"
+                                class="botao-enviar"
+                                id="botaoEnviar">
+
+                                Enviar
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script type="module" src="comercial-comunicacoes.js"></script>
+
+</body>
+
+</html>

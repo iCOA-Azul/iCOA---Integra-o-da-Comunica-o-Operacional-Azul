@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>iCOA — Atendimento</title>
+
+<link rel="stylesheet" href="atendimento.css">
+
+
+</head>
+
+<body>
+
+
+<!-- BARRA SUPERIOR -->
+
+<header class="topo">
+
+    <div class="logo">
+
+        <h1>iCOA</h1>
+
+        <span>Integração da Comunicação Operacional Azul</span>
+
+    </div>
+
+
+    <div class="usuario">
+
+        <div class="informacoes-usuario">
+
+            <strong>ATENDIMENTO</strong>
+
+            <span>Atendimento ao Cliente</span>
+
+        </div>
+
+     <a href="../index.html">  <button class="botao-sair">Sair</button> </a> 
+
+    </div>
+
+</header>
+
+
+<!-- ESTRUTURA PRINCIPAL -->
+
+<div class="estrutura">
+
+
+    <!-- MENU LATERAL -->
+
+    <aside class="menu">
+
+        <nav>
+
+            <a href="#" class="menu-ativo">
+                
+                <span>Início</span>
+            </a>
+
+            <a href="#">
+                
+                <span>Voos</span>
+            </a>
+
+            <a href="#">
+                
+                <span>Avisos</span>
+            </a>
+
+            <a href="atendimento-comunicacoes.html">
+                
+                <span>Comunicações</span>
+            </a>
+
+            <a href="../historico.html">
+                
+                <span>Histórico</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- CONTEÚDO -->
+
+    <main class="conteudo">
+
+        <div class="titulo-pagina">
+
+            <div>
+
+                <h2>Atendimento ao Cliente</h2>
+
+                <p>
+                    Consulta de informações operacionais para orientação aos passageiros
+                </p>
+
+            </div>
+
+
+            <div class="status-sistema">
+
+                <span class="bolinha"></span>
+
+                Sistema operacional
+
+            </div>
+
+        </div>
+
+
+        <!-- CARDS -->
+
+        <section class="resumo">
+
+            <div class="card-resumo">
+
+                <span class="icone">✈️</span>
+
+                <div>
+
+                    <span class="numero">0</span>
+
+                    <p>Voos com atualização</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card-resumo">
+
+                <span class="icone">🔔</span>
+
+                <div>
+
+                    <span class="numero">0</span>
+
+                    <p>Novos avisos</p>
+
+                </div>
+
+            </div>
+
+
+          
+<div class="card-resumo">
+    <span class="icone">💬</span>
+    <div>
+        <span class="numero" id="contadorComunicacoes">0</span>
+        <p>Comunicações não lidas</p>
+    </div>
+</div>
+
+
+        </section>
+
+
+        <!-- ATUALIZAÇÕES DE VOOS -->
+
+        <section class="secao">
+
+            <div class="cabecalho-secao">
+
+                <div>
+
+                    <h3>Atualizações de voos</h3>
+
+                    <p>
+                        Informações operacionais disponibilizadas para o atendimento.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+      <div class="lista-ocorrencias" id="listaOcorrencias">
+
+    <div class="sem-ocorrencias" id="semOcorrencias">
+
+        <div class="icone-vazio">
+            ✈️
+        </div>
+
+        <h4>Nenhuma atualização disponível</h4>
+
+        <p>
+            Quando uma ocorrência afetar um voo e uma informação
+            for direcionada ao Atendimento, ela aparecerá nesta área.
+        </p>
+
+    </div>
+
+</div>
+
+        </section>
+
+
+        <!-- AVISOS -->
+
+        <section class="secao">
+
+            <div class="cabecalho-secao">
+
+                <div>
+
+                    <h3>Avisos recebidos</h3>
+
+                    <p>
+                        Informações direcionadas ao setor de Atendimento.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="sem-ocorrencias">
+
+                <div class="icone-vazio">
+                    🔔
+                </div>
+
+                <h4>Nenhum aviso novo</h4>
+
+                <p>
+                    Novos avisos enviados pelo CCO aparecerão aqui.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ORIENTAÇÃO AO PASSAGEIRO -->
+
+        <section class="secao">
+
+            <div class="cabecalho-secao">
+
+                <div>
+
+                    <h3>Orientação ao passageiro</h3>
+
+                    <p>
+                        Informações simplificadas para comunicação com o cliente.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="sem-ocorrencias">
+
+                <div class="icone-vazio">
+                    💬
+                </div>
+
+                <h4>Nenhuma orientação disponível</h4>
+
+                <p>
+                    As informações destinadas ao passageiro aparecerão
+                    aqui quando forem disponibilizadas pelo sistema.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script type="module" src="atendimento.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>iCOA — Histórico</title>
+
+    <link rel="stylesheet" href="historico.css">
+</head>
+
+<body>
+
+    <!-- ================================
+         TOPO
+    ================================= -->
+
+    <header class="topo">
+
+        <div class="logo">
+
+            <strong>iCOA</strong>
+
+            <span>
+                Integração da Comunicação Operacional Azul
+            </span>
+
+        </div>
+
+        <button class="botao-sair" type="button">
+            Sair
+        </button>
+
+    </header>
+
+
+    <!-- ================================
+         ESTRUTURA PRINCIPAL
+    ================================= -->
+
+    <div class="estrutura">
+
+
+        <!-- ================================
+             MENU LATERAL
+        ================================= -->
+
+        <aside class="menu">
+
+            <nav>
+
+                <a href="" class="inicio">
+                    Início
+                </a>
+
+                <a href="#">
+                    Ocorrências
+                </a>
+
+                <a href="#">
+                    Avisos
+                </a>
+
+                <a href="#">
+                    Comunicações
+                </a>
+
+                <a href="historico.html" class="ativo">
+                    Histórico
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- ================================
+             CONTEÚDO
+        ================================= -->
+
+        <main class="conteudo">
+
+
+            <!-- ================================
+                 CABEÇALHO
+            ================================= -->
+
+            <div class="cabecalho-pagina">
+
+                <div>
+
+                    <h1>
+                        Histórico
+                    </h1>
+
+                    <p>
+                        Registro geral de ocorrências encerradas
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 SEÇÃO DO HISTÓRICO
+            ================================= -->
+
+            <section class="secao">
+
+
+                <!-- ================================
+                     TÍTULO DA SEÇÃO
+                ================================= -->
+
+                <div class="titulo-secao">
+
+                    <div>
+
+                        <h2>
+                            Ocorrências encerradas
+                        </h2>
+
+                        <p>
+                            Consulte as ocorrências já finalizadas pela operação.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================
+                     LISTA
+                ================================= -->
+
+                <div
+                    class="lista-historico"
+                    id="listaHistorico"
+                >
+
+                    <!--
+                        As ocorrências encerradas
+                        serão adicionadas aqui pelo JavaScript
+                    -->
+
+                    <div
+                        class="sem-historico"
+                        id="semHistorico"
+                    >
+
+                        <div class="icone-historico">
+                            ✓
+                        </div>
+
+                        <h3>
+                            Nenhuma ocorrência encerrada
+                        </h3>
+
+                        <p>
+                            As ocorrências finalizadas aparecerão aqui.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+   <script type="module" src="historico.js"></script>
+
+</body>
+
+</html>

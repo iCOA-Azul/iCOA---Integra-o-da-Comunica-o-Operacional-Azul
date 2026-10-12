@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>iCOA — Manutenção</title>
+
+    <link rel="stylesheet" href="manutencao.css">
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <header class="topo">
+
+        <div class="logo">
+            <h1>iCOA</h1>
+            <span>Integração da Comunicação Operacional Azul</span>
+        </div>
+
+        <div class="usuario">
+            <div class="informacoes-usuario">
+                <strong>MANUTENÇÃO</strong>
+                <span>Setor de Manutenção</span>
+            </div>
+
+            <a href="../index.html">
+                <button class="botao-sair" type="button">
+                    Sair
+                </button>
+            </a>
+        </div>
+
+    </header>
+
+    <!-- ESTRUTURA PRINCIPAL -->
+    <div class="estrutura">
+
+        <!-- MENU LATERAL -->
+        <aside class="menu">
+            <nav>
+                <a href="#" class="menu-ativo">
+                    <span>Início</span>
+                </a>
+
+                <a href="#listaOcorrencias">
+                    <span>Ocorrências</span>
+                </a>
+
+                <a href="#avisos">
+                    <span>Avisos</span>
+                </a>
+
+                <a href="manutencao-comunicacoes.html">
+                    <span>Comunicações</span>
+                </a>
+
+                <a href="../historico.html">
+                    <span>Histórico</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="conteudo">
+
+            <!-- TÍTULO -->
+            <div class="titulo-pagina">
+                <div>
+                    <h2>Setor de Manutenção</h2>
+                    <p>
+                        Registro e acompanhamento de ocorrências técnicas
+                    </p>
+                </div>
+
+                <div class="status-sistema">
+                    <span class="bolinha"></span>
+                    Sistema operacional
+                </div>
+            </div>
+
+            <!-- CARDS DE RESUMO -->
+            <section class="resumo">
+
+                <div class="card-resumo">
+                    <span class="icone">🔧</span>
+
+                    <div>
+                        <span class="numero" id="contadorOcorrencias">0</span>
+                        <p>Ocorrências técnicas</p>
+                    </div>
+                </div>
+
+                <div class="card-resumo">
+                    <span class="icone">🔔</span>
+
+                    <div>
+                        <span class="numero" id="contadorAvisos">0</span>
+                        <p>Avisos não lidos</p>
+                    </div>
+                </div>
+
+                <div class="card-resumo">
+                    <span class="icone">💬</span>
+
+                    <div>
+                        <span class="numero" id="contadorComunicacoes">0</span>
+                        <p>Comunicações</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- OCORRÊNCIAS TÉCNICAS -->
+            <section class="secao" id="ocorrencias">
+
+                <div class="cabecalho-secao">
+                    <div>
+                        <h3>Ocorrências técnicas</h3>
+                        <p>
+                            Registre uma ocorrência para comunicar as áreas envolvidas.
+                        </p>
+                    </div>
+
+                    <button
+                        class="botao-principal"
+                        id="novaOcorrencia"
+                        type="button">
+                        + Registrar ocorrência
+                    </button>
+                </div>
+
+                <!-- FORMULÁRIO -->
+                <div
+                    class="formulario-ocorrencia"
+                    id="formularioOcorrencia"
+                    style="display: none;">
+
+                    <div class="cabecalho-formulario">
+                        <div>
+                            <h3>Nova ocorrência</h3>
+                            <p>Registre uma nova ocorrência operacional.</p>
+                        </div>
+                    </div>
+
+                    <form id="formOcorrencia">
+
+                        <div class="campo">
+                            <label for="voo">Número do voo</label>
+                            <input
+                                type="text"
+                                id="voo"
+                                placeholder="Ex: AD1234"
+                                required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="aeronave">Aeronave</label>
+                            <input
+                                type="text"
+                                id="aeronave"
+                                placeholder="Ex: PR-XXX"
+                                required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="tipo">Tipo de ocorrência</label>
+                            <select id="tipo" required>
+                                <option value="">Selecione uma opção</option>
+                                <option value="Falha técnica">Falha técnica</option>
+                                <option value="Problema operacional">Problema operacional</option>
+                                <option value="Problema em solo">Problema em solo</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="gravidade">Gravidade</label>
+                            <select id="gravidade" required>
+                                <option value="">Selecione uma opção</option>
+                                <option value="Baixa">Baixa</option>
+                                <option value="Média">Média</option>
+                                <option value="Alta">Alta</option>
+                            </select>
+                        </div>
+
+                        <div class="campo campo-descricao">
+                            <label for="descricao">Descrição da ocorrência</label>
+                            <textarea
+                                id="descricao"
+                                placeholder="Descreva o problema identificado..."
+                                required></textarea>
+                        </div>
+
+                        <!-- ÁREAS AFETADAS -->
+                        <div class="campo">
+                            <label>Áreas afetadas</label>
+
+                            <div class="areas">
+                                <label class="checkbox">
+                                    <input type="checkbox" value="CCO">
+                                    CCO
+                                </label>
+
+                                <label class="checkbox">
+                                    <input type="checkbox" value="Handling">
+                                    Handling
+                                </label>
+
+                                <label class="checkbox">
+                                    <input type="checkbox" value="Comercial">
+                                    Comercial
+                                </label>
+
+                                <label class="checkbox">
+                                    <input type="checkbox" value="Atendimento">
+                                    Atendimento
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- BOTÕES -->
+                        <div class="botoes-formulario">
+                            <button
+                                type="button"
+                                class="botao-cancelar"
+                                id="cancelarOcorrencia">
+                                Cancelar
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="botao-principal">
+                                Registrar ocorrência
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+                <!-- LISTA DE OCORRÊNCIAS -->
+                <div class="lista-ocorrencias" id="listaOcorrencias">
+
+                    <div class="sem-ocorrencias" id="semOcorrencias">
+                        <div class="icone-vazio">🔧</div>
+
+                        <h4>Nenhuma ocorrência registrada</h4>
+
+                        <p>
+                            Quando uma ocorrência técnica for identificada,
+                            ela aparecerá nesta área.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- AVISOS RECEBIDOS -->
+            <section class="secao" id="avisos">
+
+                <div class="cabecalho-secao">
+                    <div>
+                        <h3>Avisos recebidos</h3>
+                        <p>
+                            Informações enviadas pelo CCO para o setor de Manutenção.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lista-avisos" id="listaAvisos">
+
+                    <div class="sem-ocorrencias" id="semAvisos">
+                        <div class="icone-vazio">🔔</div>
+
+                        <h4>Nenhum aviso recebido</h4>
+
+                        <p>
+                            Novos avisos enviados pelo CCO aparecerão aqui.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- JAVASCRIPT DO PAINEL -->
+    <script type="module" src="manutencao.js"></script>
+
+</body>
+
+</html>

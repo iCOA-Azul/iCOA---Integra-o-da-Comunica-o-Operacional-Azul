@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>iCOA — Comercial</title>
+
+    <link rel="stylesheet" href="comercial.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="topo">
+
+        <div class="logo">
+            <h1>iCOA</h1>
+            <span>Integração da Comunicação Operacional Azul</span>
+        </div>
+
+        <div class="usuario">
+
+            <div class="informacoes-usuario">
+                <strong>COMERCIAL</strong>
+                <span>Setor Comercial</span>
+            </div>
+
+            <a href="../index.html">
+                <button class="botao-sair" type="button">
+                    Sair
+                </button>
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- ESTRUTURA PRINCIPAL -->
+    <div class="estrutura">
+
+        <!-- MENU LATERAL -->
+        <aside class="menu">
+
+            <nav>
+
+                <a href="comercial.html" class="menu-ativo">
+                    <span>Início</span>
+                </a>
+
+                <a href="#listaOcorrencias">
+                    <span>Impactos</span>
+                </a>
+
+                <a href="#listaAvisos">
+                    <span>Avisos</span>
+                </a>
+
+                <a href="comercial-comunicacoes.html">
+                    <span>Comunicações</span>
+                </a>
+
+                <a href="../historico.html">
+                    <span>Histórico</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <main class="conteudo">
+
+            <!-- TÍTULO DA PÁGINA -->
+            <div class="titulo-pagina">
+
+                <div>
+                    <h2>Setor Comercial</h2>
+
+                    <p>
+                        Acompanhamento dos impactos comerciais
+                        das ocorrências operacionais.
+                    </p>
+                </div>
+
+                <div class="status-sistema">
+                    <span class="bolinha"></span>
+                    Sistema operacional
+                </div>
+
+            </div>
+
+            <!-- CARDS DE RESUMO -->
+            <section class="resumo">
+
+                <div class="card-resumo">
+
+                    <span class="icone">📊</span>
+
+                    <div>
+                        <span class="numero" id="contadorImpactos">0</span>
+                        <p>Impactos comerciais</p>
+                    </div>
+
+                </div>
+
+                <div class="card-resumo">
+
+                    <span class="icone">🔔</span>
+
+                    <div>
+                        <span class="numero" id="contadorAvisos">0</span>
+                        <p>Avisos não lidos</p>
+                    </div>
+
+                </div>
+
+                <div class="card-resumo">
+
+                    <span class="icone">💬</span>
+
+                    <div>
+                        <span class="numero" id="contadorComunicacoes">0</span>
+                        <p>Comunicações</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- IMPACTOS COMERCIAIS -->
+            <section class="secao">
+
+                <div class="cabecalho-secao">
+
+                    <div>
+                        <h3>Impactos comerciais</h3>
+
+                        <p>
+                            Acompanhe ocorrências que possam gerar
+                            impactos comerciais.
+                        </p>
+                    </div>
+
+                    <button
+                        class="botao-principal"
+                        id="novoImpacto"
+                        type="button">
+
+                        + Registrar impacto
+
+                    </button>
+
+                </div>
+
+                <div class="lista-ocorrencias" id="listaOcorrencias">
+
+                    <div class="sem-ocorrencias" id="semOcorrencias">
+
+                        <div class="icone-vazio">📊</div>
+
+                        <h4>Nenhum impacto registrado</h4>
+
+                        <p>
+                            Quando uma ocorrência operacional gerar
+                            impacto comercial, ela aparecerá nesta área.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- AVISOS RECEBIDOS -->
+            <section class="secao">
+
+                <div class="cabecalho-secao">
+
+                    <div>
+                        <h3>Avisos recebidos</h3>
+
+                        <p>
+                            Mensagens e informações destinadas ao setor Comercial.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="lista-avisos" id="listaAvisos">
+
+                    <div class="sem-ocorrencias" id="semAvisos">
+
+                        <div class="icone-vazio">🔔</div>
+
+                        <h4>Nenhum aviso recebido</h4>
+
+                        <p>
+                            Novas mensagens destinadas ao Comercial
+                            aparecerão aqui.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- JAVASCRIPT DO COMERCIAL -->
+    <script type="module" src="comercial.js"></script>
+
+</body>
+
+</html>

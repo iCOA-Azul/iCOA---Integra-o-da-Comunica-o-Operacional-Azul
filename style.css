@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.search-box {
+    width: 100%;
+    height: 400px;
+    background-image: url("assets/img1.png.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #003B70;
+    min-height: 100vh;
+}
+
+.tela-login {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.caixa-login {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.logo h1 {
+    font-size: 48px;
+    color: #003B70;
+    margin-bottom: 8px;
+}
+
+.logo p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 7px;
+    color: #333;
+    font-weight: bold;
+}
+
+.campo input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+    outline: none;
+}
+
+.campo input:focus {
+    border-color: #0066a1;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 7px;
+    background: #0066a1;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #00284D;
+}
+
+.credenciais {
+    margin-top: 25px;
+    border-top: 1px solid #ddd;
+    padding-top: 18px;
+}
+
+.credenciais summary {
+    cursor: pointer;
+    color: #0066a1;
+    font-weight: bold;
+}
+
+.lista-credenciais {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.lista-credenciais p {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.lista-credenciais strong {
+    color: #0066a1;
+}
+
+.rodape {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 500px) {
+
+    .tela-login {
+        padding: 15px;
+    }
+
+    .caixa-login {
+        padding: 30px 20px;
+    }
+
+    .logo h1 {
+        font-size: 40px;
+    }
+
+    .logo p {
+        font-size: 14px;
+    }
+}
