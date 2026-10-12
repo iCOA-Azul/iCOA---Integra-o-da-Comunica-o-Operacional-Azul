@@ -19,6 +19,10 @@ import { onAuthStateChanged } from "firebase/auth";
 const listaMensagens = document.getElementById("listaMensagens");
 const campoMensagem = document.getElementById("mensagem");
 const formMensagem = document.getElementById("formMensagem");
+
+console.log("Formulário:", formMensagem);
+console.log("Campo de mensagem:", campoMensagem);
+
 const badgeCCO = document.getElementById("badgeCCO");
 const badgeMenu = document.getElementById("badgeMenu");
 const botaoEnviar = document.getElementById("botaoEnviar");
