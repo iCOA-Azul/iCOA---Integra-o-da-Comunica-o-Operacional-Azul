@@ -285,23 +285,18 @@ body {
    ÁREA DE COMUNICAÇÃO
 ======================================== */
 
+
 .area-comunicacao {
     display: grid;
-
-    grid-template-columns: 300px 1fr;
-
-    height: calc(100vh - 170px);
-
-    min-height: 500px;
-
-    background: white;
-
-    border: 1px solid #e4e7ec;
-
-    border-radius: 10px;
-
+    grid-template-columns: 300px minmax(0, 1fr);
+    height: calc(100vh - 280px);
+    min-height: 350px;
+     background: white;
+     border: 1px solid #e4e7ec;
+     border-radius: 10px;
     overflow: hidden;
 }
+
 
 
 /* ========================================
@@ -454,13 +449,17 @@ body {
    CONVERSA
 ======================================== */
 
+
 .conversa {
-    display: flex;
-
-    flex-direction: column;
-
+     display: flex;
+     flex-direction: column;
     min-width: 0;
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
 }
+
+
 
 
 /* CABEÇALHO */
@@ -523,18 +522,13 @@ body {
 ======================================== */
 
 .lista-mensagens {
-    flex: 1;
-
-    padding: 20px;
-
-    overflow-y: auto;
-
-    background: #f8fafc;
-
-    display: flex;
-
-    flex-direction: column;
-
+       flex: 1;
+       min-height: 0;
+       padding: 20px;
+       overflow-y: auto;
+      background: #f8fafc;
+      display: flex;
+      flex-direction: column;
     gap: 10px;
 }
 
@@ -643,11 +637,11 @@ body {
 ======================================== */
 
 .campo-mensagem {
-    padding: 15px 20px;
-
-    border-top: 1px solid #e4e7ec;
-
-    background: white;
+    display: block;
+    flex-shrink: 0;
+       padding: 15px 20px;
+      border-top: 1px solid #e4e7ec;
+      background: white;
 }
 
 
@@ -752,9 +746,12 @@ body {
 
 @media (max-width: 900px) {
 
-    .area-comunicacao {
-        grid-template-columns: 240px 1fr;
-    }
+
+.area-comunicacao {
+    height: calc(100vh - 190px);
+    min-height: 350px;
+}
+
 
     .conteudo {
         padding: 20px;
