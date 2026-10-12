@@ -14,17 +14,19 @@
 }
 /* Ajuste para celulares */
 @media (max-width: 768px) {
-.search-box {
-height: 220px;
-background-position: center;
-}
+    .search-box {
+        height: 180px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 }
 
 /* Ajuste para celulares menores */
 @media (max-width: 480px) {
-.search-box {
-height: 170px;
-}
+    .search-box {
+        height: 140px;
+    }
 }
 
 
