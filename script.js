@@ -124,7 +124,8 @@ const botaoEntrar = formulario.querySelector('button[type="submit"]');
 
 const paginasSetores = {
   "cco@icoa.com": "CCO/CCO.html",
-  "manutencao@icoa.com": "MANUTENCAO/MANUTENCAO.html",
+  //"manutencao@icoa.com": "MANUTENCAO/MANUTENCAO.html",
+  "manutencao@icoa.com": "manutencao/manutencao.html",
   "handling@icoa.com": "handling/handling.html",
   "comercial@icoa.com": "comercial/comercial.html",
   "atendimento@icoa.com": "atendimento/atendimento.html"
