@@ -15,7 +15,7 @@
 /* Ajuste para celulares */
 @media (max-width: 768px) {
     .search-box {
-        height: 180px;
+        height: 150px;
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
