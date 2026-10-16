@@ -3,7 +3,9 @@ import { db, auth } from "../firebase.js";
 
 import {
     collection,
-    onSnapshot
+    onSnapshot,
+    addDoc,
+    serverTimestamp
 } from "firebase/firestore";
 
 import { onAuthStateChanged } from "firebase/auth";
@@ -17,8 +19,105 @@ const semOcorrencias = document.getElementById("semOcorrencias");
 const numeros = document.querySelectorAll(".card-resumo .numero");
 const contadorComunicacoes = document.getElementById("contadorComunicacoes");
 
+const botaoAbrirFormulario = document.getElementById("abrirFormularioOcorrencia");
+const formularioOcorrencia = document.getElementById("formularioOcorrencia");
+const formOcorrencia = document.getElementById("formOcorrenciaAtendimento");
+const botaoCancelar = document.getElementById("cancelarFormularioOcorrencia");
+
+const campoVoo = document.getElementById("vooOcorrencia");
+const campoTipo = document.getElementById("tipoOcorrencia");
+const campoGravidade = document.getElementById("gravidadeOcorrencia");
+const campoDescricao = document.getElementById("descricaoOcorrencia");
+
 let pararDeEscutarOcorrencias = null;
 let pararDeEscutarComunicacoes = null;
+
+// ========================================
+// ABRIR E FECHAR O FORMULÁRIO
+// ========================================
+
+if (botaoAbrirFormulario && formularioOcorrencia) {
+    botaoAbrirFormulario.addEventListener("click", function () {
+        formularioOcorrencia.hidden = !formularioOcorrencia.hidden;
+    });
+}
+
+if (botaoCancelar && formularioOcorrencia && formOcorrencia) {
+    botaoCancelar.addEventListener("click", function () {
+        formOcorrencia.reset();
+        formularioOcorrencia.hidden = true;
+    });
+}
+
+// ========================================
+// REGISTRAR OCORRÊNCIA NO FIREBASE
+// ========================================
+
+if (formOcorrencia) {
+    formOcorrencia.addEventListener("submit", async function (evento) {
+        evento.preventDefault();
+
+        const usuario = auth.currentUser;
+
+        if (!usuario) {
+            alert("Sua sessão expirou. Entre novamente no sistema.");
+            return;
+        }
+
+        const voo = campoVoo.value.trim();
+        const tipo = campoTipo.value;
+        const gravidade = campoGravidade.value;
+        const descricao = campoDescricao.value.trim();
+
+        if (!voo || !tipo || !gravidade || !descricao) {
+            alert("Preencha todos os campos antes de registrar.");
+            return;
+        }
+
+        const botaoEnviar = formOcorrencia.querySelector(
+            'button[type="submit"]'
+        );
+
+        if (botaoEnviar) {
+            botaoEnviar.disabled = true;
+            botaoEnviar.textContent = "Registrando...";
+        }
+
+        try {
+            await addDoc(collection(db, "ocorrencias"), {
+                voo: voo,
+                aeronave: "Não informada",
+                tipo: tipo,
+                gravidade: gravidade,
+                descricao: descricao,
+                setor: "Atendimento",
+                areas: ["Atendimento", "CCO"],
+                status: "Em andamento",
+                criadoPorUid: usuario.uid,
+                criadoEm: serverTimestamp()
+            });
+
+            formOcorrencia.reset();
+            formularioOcorrencia.hidden = true;
+
+            alert("Ocorrência registrada com sucesso!");
+
+        } catch (erro) {
+            console.error("Erro ao registrar ocorrência:", erro);
+
+            alert(
+                "Não foi possível registrar a ocorrência. " +
+                "Verifique sua conexão e as permissões do Firebase."
+            );
+
+        } finally {
+            if (botaoEnviar) {
+                botaoEnviar.disabled = false;
+                botaoEnviar.textContent = "Registrar ocorrência";
+            }
+        }
+    });
+}
 
 // ========================================
 // PROTEGER TEXTOS EXIBIDOS NOS CARDS
@@ -56,15 +155,17 @@ function mostrarOcorrencias(documentos) {
         };
     });
 
-    const ocorrenciasAtendimento = todasOcorrencias.filter(function (ocorrencia) {
-        return (
-            ocorrencia.setor === "Atendimento" ||
-            (
-                Array.isArray(ocorrencia.areas) &&
-                ocorrencia.areas.includes("Atendimento")
-            )
-        ) && ocorrencia.status !== "Encerrada";
-    });
+    const ocorrenciasAtendimento = todasOcorrencias.filter(
+        function (ocorrencia) {
+            return (
+                ocorrencia.setor === "Atendimento" ||
+                (
+                    Array.isArray(ocorrencia.areas) &&
+                    ocorrencia.areas.includes("Atendimento")
+                )
+            ) && ocorrencia.status !== "Encerrada";
+        }
+    );
 
     if (numeros[0]) {
         numeros[0].textContent = ocorrenciasAtendimento.length;
@@ -132,7 +233,7 @@ function criarCard(ocorrencia) {
             "\nGravidade: " + (ocorrencia.gravidade || "Não informada") +
             "\nDescrição: " + (ocorrencia.descricao || "Sem descrição") +
             "\nSetor responsável: " + (ocorrencia.setor || "Não informado") +
-            "\nÁreas afetadas: " + (ocorrencia.areas || []).join(", ") +
+            "\nÁreas envolvidas: " + (ocorrencia.areas || []).join(", ") +
             "\nStatus: " + (ocorrencia.status || "Em andamento")
         );
     });
@@ -159,13 +260,15 @@ function ouvirContadorComunicacoes() {
                 contadorComunicacoes.textContent = quantidade;
             }
 
-            // O terceiro card é o de comunicações.
             if (numeros[2] && !contadorComunicacoes) {
                 numeros[2].textContent = quantidade;
             }
         },
         function (erro) {
-            console.error("Erro ao carregar contador de comunicações:", erro);
+            console.error(
+                "Erro ao carregar contador de comunicações:",
+                erro
+            );
         }
     );
 }
@@ -203,7 +306,8 @@ onAuthStateChanged(auth, function (usuario) {
                 const descricao = semOcorrencias.querySelector("p");
 
                 if (titulo) {
-                    titulo.textContent = "Não foi possível carregar as atualizações";
+                    titulo.textContent =
+                        "Não foi possível carregar as atualizações";
                 }
 
                 if (descricao) {

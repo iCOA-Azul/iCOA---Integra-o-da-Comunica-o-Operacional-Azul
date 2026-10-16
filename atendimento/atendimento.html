@@ -164,23 +164,93 @@
         </section>
 
 
+     
+
+
+
+
         <!-- ATUALIZAÇÕES DE VOOS -->
 
         <section class="secao">
-
             <div class="cabecalho-secao">
-
                 <div>
-
                     <h3>Atualizações de voos</h3>
-
                     <p>
                         Informações operacionais disponibilizadas para o atendimento.
                     </p>
-
                 </div>
 
+                <button type="button" class="botao-ocorrencia" id="abrirFormularioOcorrencia">
+                    + Gerar ocorrência
+                </button>
             </div>
+
+            <!-- FORMULÁRIO DE NOVA OCORRÊNCIA -->
+
+            <div class="formulario-ocorrencia" id="formularioOcorrencia" hidden>
+                <h3>Registrar ocorrência de atendimento</h3>
+
+                <p>
+                    Registre problemas relatados por passageiros ou identificados durante o atendimento.
+                </p>
+
+                <form id="formOcorrenciaAtendimento">
+
+                    <label for="vooOcorrencia">Número do voo</label>
+                    <input
+                        type="text"
+                        id="vooOcorrencia"
+                        placeholder="Ex.: AD1234"
+                        required
+                    >
+
+                    <label for="tipoOcorrencia">Tipo de ocorrência</label>
+                    <select id="tipoOcorrencia" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="Informação sobre atraso">Informação sobre atraso</option>
+                        <option value="Dificuldade de embarque">Dificuldade de embarque</option>
+                        <option value="Problema com bagagem">Problema com bagagem</option>
+                        <option value="Problema de atendimento">Problema de atendimento</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+
+                    <label for="gravidadeOcorrencia">Prioridade</label>
+                    <select id="gravidadeOcorrencia" required>
+                        <option value="">Selecione a prioridade</option>
+                        <option value="Baixa">Baixa</option>
+                        <option value="Média">Média</option>
+                        <option value="Alta">Alta</option>
+                    </select>
+
+                    <label for="descricaoOcorrencia">Descrição do problema</label>
+                    <textarea
+                        id="descricaoOcorrencia"
+                        rows="4"
+                        placeholder="Descreva o problema relatado, sem incluir dados pessoais do passageiro."
+                        required
+                    ></textarea>
+
+                    <div class="acoes-formulario">
+                        <button type="submit" class="botao-ocorrencia">
+                            Registrar ocorrência
+                        </button>
+
+                        <button type="button" class="botao-cancelar" id="cancelarFormularioOcorrencia">
+                            Cancelar
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+
+
+
+
+
+
+
+
 
 
       <div class="lista-ocorrencias" id="listaOcorrencias">
