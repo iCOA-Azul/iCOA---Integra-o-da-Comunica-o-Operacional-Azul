@@ -9,12 +9,15 @@ const paginas = [
   "atendimento/atendimento-comunicacoes.html",
   "CCO/CCO.html",
   "CCO/CCO-comunicacoes.html",
+  "CCO/ocorrencias.html",
   "comercial/comercial.html",
   "comercial/comercial-comunicacoes.html",
   "handling/handling.html",
   "handling/handling-comunicacoes.html",
+  "handling/ocorrencia.html",
   "manutencao/manutencao.html",
-  "manutencao/manutencao-comunicacoes.html"
+  "manutencao/manutencao-comunicacoes.html",
+  "manutencao/ocorrencias.html"
 ];
 
 export default defineConfig({
