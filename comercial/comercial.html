@@ -13,10 +13,7 @@
 
 <body>
 
-
-<div class="search-box"></div>
-
-
+    <div class="search-box"></div>
 
     <!-- CABEÇALHO -->
     <header class="topo">
@@ -27,152 +24,219 @@
         </div>
 
         <div class="usuario">
-
             <div class="informacoes-usuario">
                 <strong>COMERCIAL</strong>
                 <span>Setor Comercial</span>
             </div>
 
             <a href="../index.html">
-                <button class="botao-sair" type="button">
-                    Sair
-                </button>
+                <button class="botao-sair" type="button">Sair</button>
             </a>
-
         </div>
 
     </header>
 
-    <!-- ESTRUTURA PRINCIPAL -->
     <div class="estrutura">
 
         <!-- MENU LATERAL -->
         <aside class="menu">
-
             <nav>
-
-                <a href="comercial.html" class="menu-ativo">
-                    <span>Início</span>
-                </a>
-
-                <a href="#listaOcorrencias">
-                    <span>Impactos</span>
-                </a>
-
-                <a href="#listaAvisos">
-                    <span>Avisos</span>
-                </a>
-
-                <a href="comercial-comunicacoes.html">
-                    <span>Comunicações</span>
-                </a>
-
-                <a href="../historico.html">
-                    <span>Histórico</span>
-                </a>
-
+                <a href="comercial.html" class="menu-ativo">Início</a>
+                <a href="#listaOcorrencias">Ocorrências</a>
+                <a href="#listaAvisos">Avisos</a>
+                <a href="comercial-comunicacoes.html">Comunicações</a>
+                <a href="../historico.html">Histórico</a>
             </nav>
-
         </aside>
 
-        <!-- CONTEÚDO -->
+        <!-- CONTEÚDO PRINCIPAL -->
         <main class="conteudo">
 
-            <!-- TÍTULO DA PÁGINA -->
+            <!-- TÍTULO -->
             <div class="titulo-pagina">
-
                 <div>
                     <h2>Setor Comercial</h2>
-
-                    <p>
-                        Acompanhamento dos impactos comerciais
-                        das ocorrências operacionais.
-                    </p>
+                    <p>Registro e acompanhamento de ocorrências comerciais.</p>
                 </div>
 
                 <div class="status-sistema">
                     <span class="bolinha"></span>
                     Sistema operacional
                 </div>
-
             </div>
 
-            <!-- CARDS DE RESUMO -->
+            <!-- RESUMO -->
             <section class="resumo">
 
                 <div class="card-resumo">
-
-                    <span class="icone">📊</span>
-
+                    <span class="icone">📋</span>
                     <div>
                         <span class="numero" id="contadorImpactos">0</span>
-                        <p>Impactos comerciais</p>
+                        <p>Ocorrências ativas</p>
                     </div>
-
                 </div>
 
                 <div class="card-resumo">
-
                     <span class="icone">🔔</span>
-
                     <div>
                         <span class="numero" id="contadorAvisos">0</span>
                         <p>Avisos não lidos</p>
                     </div>
-
                 </div>
 
                 <div class="card-resumo">
-
                     <span class="icone">💬</span>
-
                     <div>
                         <span class="numero" id="contadorComunicacoes">0</span>
-                        <p>Comunicações</p>
+                        <p>Comunicações não lidas</p>
                     </div>
-
                 </div>
 
             </section>
 
-            <!-- IMPACTOS COMERCIAIS -->
+            <!-- SEÇÃO DE OCORRÊNCIAS -->
             <section class="secao">
 
                 <div class="cabecalho-secao">
-
                     <div>
-                        <h3>Impactos comerciais</h3>
-
-                        <p>
-                            Acompanhe ocorrências que possam gerar
-                            impactos comerciais.
-                        </p>
+                        <h3>Ocorrências comerciais</h3>
+                        <p>Registre problemas e avise as áreas envolvidas.</p>
                     </div>
 
                     <button
                         class="botao-principal"
                         id="novoImpacto"
                         type="button">
-
-                        + Registrar impacto
-
+                        + Registrar ocorrência
                     </button>
-
                 </div>
 
+                <!-- FORMULÁRIO: FICA ANTES DAS OCORRÊNCIAS EXISTENTES -->
+                <section
+                    class="formulario-expansivel"
+                    id="modalRegistro"
+                    aria-hidden="true">
+
+                    <div class="formulario-cabecalho">
+                        <div>
+                            <h3>Registrar ocorrência</h3>
+                            <p>Preencha os dados e selecione as áreas que deverão receber o aviso.</p>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="botao-fechar"
+                            id="fecharModal">
+                            Fechar ✕
+                        </button>
+                    </div>
+
+                    <form id="formOcorrencia">
+
+                        <label for="tipoOcorrencia">Tipo de ocorrência</label>
+
+                        <select id="tipoOcorrencia" required>
+                            <option value="">Selecione o tipo</option>
+                            <option value="Falha no sistema de reservas">Falha no sistema de reservas</option>
+                            <option value="Problema no pagamento">Problema no pagamento</option>
+                            <option value="Falha na emissão de passagens">Falha na emissão de passagens</option>
+                            <option value="Aumento de demanda no atendimento">Aumento de demanda no atendimento</option>
+                            <option value="Impacto de atraso ou cancelamento">Impacto de atraso ou cancelamento</option>
+                            <option value="Divergência de informações">Divergência de informações</option>
+                            <option value="Outro problema comercial">Outro problema comercial</option>
+                        </select>
+
+                        <label for="vooOcorrencia">Voo relacionado (opcional)</label>
+                        <input
+                            id="vooOcorrencia"
+                            type="text"
+                            placeholder="Ex.: AD1234">
+
+                        <label for="aeronaveOcorrencia">Aeronave (opcional)</label>
+                        <input
+                            id="aeronaveOcorrencia"
+                            type="text"
+                            placeholder="Ex.: Embraer E195-E2">
+
+                        <label for="gravidadeOcorrencia">Gravidade</label>
+
+                        <select id="gravidadeOcorrencia" required>
+                            <option value="">Selecione a gravidade</option>
+                            <option value="Baixa">Baixa</option>
+                            <option value="Média">Média</option>
+                            <option value="Alta">Alta</option>
+                        </select>
+
+                        <label for="descricaoOcorrencia">Descrição do problema</label>
+
+                        <textarea
+                            id="descricaoOcorrencia"
+                            rows="4"
+                            placeholder="Descreva o que aconteceu..."
+                            required></textarea>
+
+                        <!-- ÁREAS QUE RECEBERÃO O AVISO -->
+                        <fieldset class="areas-formulario">
+
+                            <legend>Áreas que deverão receber o aviso</legend>
+                            <p>Marque todas as áreas envolvidas.</p>
+
+                            <label class="area-opcao">
+                                <input type="checkbox" name="areas" value="CCO">
+                                CCO
+                            </label>
+
+                            <label class="area-opcao">
+                                <input type="checkbox" name="areas" value="Manutenção">
+                                Manutenção
+                            </label>
+
+                            <label class="area-opcao">
+                                <input type="checkbox" name="areas" value="Handling">
+                                Handling
+                            </label>
+
+                            <label class="area-opcao">
+                                <input type="checkbox" name="areas" value="Atendimento">
+                                Atendimento
+                            </label>
+
+                            <!--<label class="area-opcao">
+                                <input type="checkbox" name="areas" value="Comercial">
+                                Comercial
+                            </label> -->
+
+                        </fieldset>
+
+                        <!-- BOTÕES -->
+                        <div class="botoes-formulario">
+
+                            <button
+                                type="button"
+                                class="botao-cancelar"
+                                id="cancelarRegistro">
+                                Cancelar
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="botao-principal"
+                                id="salvarOcorrencia">
+                                Registrar e avisar setores
+                            </button>
+
+                        </div>
+
+                    </form>
+                </section>
+
+                <!-- LISTA DAS OCORRÊNCIAS JÁ REGISTRADAS -->
                 <div class="lista-ocorrencias" id="listaOcorrencias">
 
                     <div class="sem-ocorrencias" id="semOcorrencias">
-
-                        <div class="icone-vazio">📊</div>
-
-                        <h4>Nenhum impacto registrado</h4>
-
-                        <p>
-                            Quando uma ocorrência operacional gerar
-                            impacto comercial, ela aparecerá nesta área.
-                        </p>
-
+                        <div class="icone-vazio">📋</div>
+                        <h4>Nenhuma ocorrência registrada</h4>
+                        <p>As ocorrências comerciais aparecerão nesta área.</p>
                     </div>
 
                 </div>
@@ -183,30 +247,18 @@
             <section class="secao">
 
                 <div class="cabecalho-secao">
-
                     <div>
                         <h3>Avisos recebidos</h3>
-
-                        <p>
-                            Mensagens e informações destinadas ao setor Comercial.
-                        </p>
+                        <p>Mensagens e informações destinadas ao Comercial.</p>
                     </div>
-
                 </div>
 
                 <div class="lista-avisos" id="listaAvisos">
 
                     <div class="sem-ocorrencias" id="semAvisos">
-
                         <div class="icone-vazio">🔔</div>
-
                         <h4>Nenhum aviso recebido</h4>
-
-                        <p>
-                            Novas mensagens destinadas ao Comercial
-                            aparecerão aqui.
-                        </p>
-
+                        <p>Os avisos destinados ao Comercial aparecerão aqui.</p>
                     </div>
 
                 </div>
@@ -214,12 +266,10 @@
             </section>
 
         </main>
-
     </div>
 
-    <!-- JAVASCRIPT DO COMERCIAL -->
+    <!-- JAVASCRIPT -->
     <script type="module" src="comercial.js"></script>
 
 </body>
-
 </html>

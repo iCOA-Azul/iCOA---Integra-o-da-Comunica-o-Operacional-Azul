@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iCOA — Handling</title>
+    <link rel="stylesheet" href="ocorrencia.css">
+</head>
+<body>
+
+<header class="topo">
+    <div class="logo">
+        <h1>iCOA</h1>
+        <span>Integração da Comunicação Operacional Azul</span>
+    </div>
+
+    <div class="usuario">
+        <span>Setor de Handling</span>
+        <a href="../index.html" class="sair">Sair</a>
+    </div>
+</header>
+
+<div class="layout">
+    <aside class="menu">
+        <h3>MENU</h3>
+        <a href="handling.html">Início</a>
+        <a href="#ocorrencias">Ocorrências</a>
+        <a href="#avisos">Avisos</a>
+        <a href="handling-comunicacoes.html">Comunicações</a>
+        <a href="../historico.html">Histórico</a>
+    </aside>
+
+    <main class="conteudo">
+        <section id="inicio" class="boas-vindas">
+            <h2>Setor de Handling</h2>
+            <p>Registre ocorrências em solo e acompanhe as informações encaminhadas ao setor.</p>
+        </section>
+
+        <section class="search-box">
+            <div class="texto-banner">
+                <h2>Comunicação operacional</h2>
+                <p>Informações integradas para apoiar a operação.</p>
+            </div>
+        </section>
+
+        <section class="resumo">
+            <div class="cartao">
+                <span>Ocorrências ativas</span>
+                <strong id="contadorOcorrencias">0</strong>
+            </div>
+
+            <div class="cartao">
+                <span>Avisos novos</span>
+                <strong id="contadorAvisos">0</strong>
+            </div>
+
+            <div class="cartao">
+                <span>Comunicações não lidas</span>
+                <strong id="contadorComunicacoes">0</strong>
+            </div>
+        </section>
+
+        <section id="ocorrencias" class="secao">
+            <div class="cabecalho-secao">
+                <div>
+                    <h2>Ocorrências de solo</h2>
+                    <p>Registre ocorrências ou acompanhe as direcionadas ao Handling.</p>
+                </div>
+
+                <button id="novaOcorrencia" class="botao-principal" type="button">
+                    + Registrar ocorrência
+                </button>
+            </div>
+
+            <div id="formularioOcorrencia" class="formulario" style="display: none;">
+                <h3>Registrar ocorrência</h3>
+
+                <form id="formOcorrencia">
+                    <div class="campo">
+                        <label for="voo">Número do voo</label>
+                        <input id="voo" name="voo" type="text" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="aeronave">Aeronave</label>
+                        <input id="aeronave" name="aeronave" type="text" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="tipo">Tipo de ocorrência</label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="">Selecione</option>
+                            <option value="Problema em solo">Problema em solo</option>
+                            <option value="Atraso no atendimento em solo">Atraso no atendimento em solo</option>
+                            <option value="Problema com bagagem">Problema com bagagem</option>
+                            <option value="Equipamento de solo">Equipamento de solo</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="gravidade">Gravidade</label>
+                        <select id="gravidade" name="gravidade" required>
+                            <option value="">Selecione</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Média">Média</option>
+                            <option value="Baixa">Baixa</option>
+                        </select>
+                    </div>
+
+                    <div class="campo campo-completo">
+                        <label for="descricao">Descrição da ocorrência</label>
+                        <textarea id="descricao" name="descricao" rows="4" required></textarea>
+                    </div>
+
+                    <div class="campo campo-completo">
+                        <label>Áreas que deverão receber a ocorrência</label>
+
+                        <div class="areas">
+                            <label><input type="checkbox" name="areas" value="CCO"> CCO</label>
+                            <label><input type="checkbox" name="areas" value="Manutenção"> Manutenção</label>
+                            <label><input type="checkbox" name="areas" value="Comercial"> Comercial</label>
+                            <label><input type="checkbox" name="areas" value="Atendimento"> Atendimento</label>
+                        </div>
+                    </div>
+
+                    <div class="botoes-formulario campo-completo">
+                        <button type="submit" class="botao-principal">Enviar ocorrência</button>
+                        <button type="button" id="cancelarOcorrencia" class="botao-secundario">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="consulta">
+                <div class="cabecalho-lista">
+                    <h3>Consultar ocorrências</h3>
+                    <p>Pesquise por voo, aeronave ou descrição e filtre os resultados.</p>
+                </div>
+
+                <div class="filtros">
+                    <input
+                        type="search"
+                        id="pesquisaOcorrencias"
+                        placeholder="Buscar ocorrência..."
+                        aria-label="Buscar ocorrências"
+                    >
+
+                    <select id="filtroStatus" aria-label="Filtrar por status">
+                        <option value="Todas">Todos os status</option>
+                        <option value="Ativas">Somente ativas</option>
+                        <option value="Encerrada">Encerradas</option>
+                    </select>
+
+                    <select id="filtroGravidade" aria-label="Filtrar por gravidade">
+                        <option value="Todas">Todas as gravidades</option>
+                        <option value="Alta">Gravidade alta</option>
+                        <option value="Média">Gravidade média</option>
+                        <option value="Baixa">Gravidade baixa</option>
+                    </select>
+                </div>
+
+                <p id="mensagemCarregamento" class="mensagem-carregamento" hidden>
+                    Carregando ocorrências...
+                </p>
+
+                <div id="listaOcorrencias" class="lista-ocorrencias">
+                    <div id="semOcorrencias" class="sem-ocorrencias">
+                        Nenhuma ocorrência encontrada.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="avisos" class="secao">
+            <h2>Avisos</h2>
+            <div class="aviso">
+                <p>Nenhum aviso novo no momento.</p>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script type="module" src="ocorrencia.js"></script>
+</body>
+</html>

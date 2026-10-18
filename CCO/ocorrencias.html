@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>iCOA — Ocorrências</title>
+
+    <link rel="stylesheet" href="ocorrencias.css">
+</head>
+
+<body>
+
+    <div class="search-box"></div>
+
+    <header class="topo">
+        <div class="logo">
+            <h1>iCOA</h1>
+            <span>Integração da Comunicação Operacional Azul</span>
+        </div>
+
+        <div class="usuario">
+            <div class="informacoes-usuario">
+                <strong>CCO</strong>
+                <span>Centro de Controle Operacional</span>
+            </div>
+
+            <a href="../index.html" class="botao-sair">Sair</a>
+        </div>
+    </header>
+
+    <div class="estrutura">
+
+        <aside class="menu">
+            <nav>
+                <a href="CCO.html">Início</a>
+                <a href="ocorrencias.html" class="menu-ativo">Ocorrências</a>
+                <a href="CCO.html#avisos">Avisos</a>
+                <a href="CCO-comunicacoes.html">Comunicações</a>
+                <a href="../historico.html">Histórico</a>
+            </nav>
+        </aside>
+
+        <main class="conteudo">
+
+            <div class="titulo-pagina">
+                <div>
+                    <h2>Ocorrências</h2>
+                    <p>Acompanhamento das ocorrências encaminhadas ao CCO.</p>
+                </div>
+
+                <div class="status-sistema">
+                    <span class="bolinha"></span>
+                    Sistema operacional
+                </div>
+            </div>
+
+            <section class="resumo">
+                <div class="card-resumo">
+                    <span class="icone">🚨</span>
+                    <div>
+                        <span class="numero" id="contadorAtivas">0</span>
+                        <p>Ocorrências ativas</p>
+                    </div>
+                </div>
+
+                <div class="card-resumo">
+                    <span class="icone">🔴</span>
+                    <div>
+                        <span class="numero" id="contadorAlta">0</span>
+                        <p>Gravidade alta</p>
+                    </div>
+                </div>
+
+                <div class="card-resumo">
+                    <span class="icone">🏢</span>
+                    <div>
+                        <span class="numero" id="contadorSetores">0</span>
+                        <p>Setores envolvidos</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="secao">
+                
+
+
+
+<div class="cabecalho-secao">
+    <div>
+        <h3>Ocorrências</h3>
+        <p>Pesquise e filtre as ocorrências encaminhadas ao CCO.</p>
+    </div>
+</div>
+
+<div class="filtros">
+    <input
+        type="search"
+        id="pesquisa"
+        placeholder="Buscar por voo, aeronave ou descrição..."
+        aria-label="Buscar ocorrências">
+
+    <select id="filtroStatus" aria-label="Filtrar por status">
+        <option value="Todas">Todos os status</option>
+        <option value="Ativas">Somente ativas</option>
+        <option value="Encerrada">Encerradas</option>
+    </select>
+
+    <select id="filtroGravidade" aria-label="Filtrar por gravidade">
+        <option value="Todas">Todas as gravidades</option>
+        <option value="Alta">Gravidade alta</option>
+        <option value="Média">Gravidade média</option>
+        <option value="Baixa">Gravidade baixa</option>
+    </select>
+</div>
+
+
+
+
+
+
+                <div id="mensagemCarregamento" class="sem-ocorrencias">
+                    Carregando ocorrências...
+                </div>
+
+                <div id="listaOcorrencias" class="lista-ocorrencias"></div>
+
+                <div id="semOcorrencias" class="sem-ocorrencias" hidden>
+                    <div class="icone-vazio">🚨</div>
+                    <h4>Nenhuma ocorrência ativa</h4>
+                    <p>Quando uma ocorrência for encaminhada ao CCO, ela aparecerá aqui.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script type="module" src="ocorrencias.js"></script>
+
+</body>
+</html>

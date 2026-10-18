@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iCOA — Ocorrências da Manutenção</title>
+    <link rel="stylesheet" href="ocorrencias.css">
+</head>
+<body>
+
+    <div class="banner"></div>
+
+    <header class="topo">
+        <div class="logo">
+            <h1>iCOA</h1>
+            <span>Integração da Comunicação Operacional Azul</span>
+        </div>
+
+        <div class="usuario">
+            <div class="informacoes-usuario">
+                <strong>MANUTENÇÃO</strong>
+                <span>Setor de Manutenção</span>
+            </div>
+            <a href="../index.html" class="botao-sair">Sair</a>
+        </div>
+    </header>
+
+    <div class="estrutura">
+        <aside class="menu">
+            <nav>
+                <a href="manutencao.html">Início</a>
+                <a href="ocorrencias.html" class="menu-ativo">Ocorrências</a>
+                <a href="manutencao.html#avisos">Avisos</a>
+                <a href="manutencao-comunicacoes.html">Comunicações</a>
+                <a href="../historico.html">Histórico</a>
+            </nav>
+        </aside>
+
+        <main class="conteudo">
+            <div class="titulo-pagina">
+                <div>
+                    <h2>Ocorrências da Manutenção</h2>
+                    <p>Acompanhe as ocorrências registradas e aquelas em que a Manutenção foi acionada.</p>
+                </div>
+
+                <div class="status-sistema">
+                    <span class="bolinha"></span>
+                    Sistema operacional
+                </div>
+            </div>
+
+            <section class="resumo">
+                <article class="card-resumo">
+                    <span class="icone">🔧</span>
+                    <div>
+                        <span class="numero" id="contadorTotal">0</span>
+                        <p>Ocorrências relacionadas</p>
+                    </div>
+                </article>
+
+                <article class="card-resumo">
+                    <span class="icone">🚨</span>
+                    <div>
+                        <span class="numero" id="contadorAtivas">0</span>
+                        <p>Ocorrências ativas</p>
+                    </div>
+                </article>
+
+                <article class="card-resumo">
+                    <span class="icone">🔴</span>
+                    <div>
+                        <span class="numero" id="contadorAlta">0</span>
+                        <p>Gravidade alta</p>
+                    </div>
+                </article>
+            </section>
+
+            <section class="secao">
+                <div class="cabecalho-secao">
+                    <div>
+                        <h3>Lista de ocorrências</h3>
+                        <p>Consulte os registros próprios e as ocorrências que acionaram a Manutenção.</p>
+                    </div>
+                </div>
+
+                <div class="filtros">
+                    <input
+                        id="pesquisa"
+                        type="search"
+                        placeholder="Buscar por voo, aeronave ou descrição..."
+                        aria-label="Buscar ocorrências">
+
+                    <select id="filtroStatus" aria-label="Filtrar por status">
+                        <option value="Todas">Todos os status</option>
+                        <option value="Ativas">Somente ativas</option>
+                        <option value="Encerrada">Encerradas</option>
+                    </select>
+
+                    <select id="filtroOrigem" aria-label="Filtrar por origem">
+                        <option value="Todas">Todas as origens</option>
+                        <option value="Proprias">Registradas pela Manutenção</option>
+                        <option value="Acionada">Outros setores que acionaram</option>
+                    </select>
+                </div>
+
+                <div id="carregando" class="mensagem">
+                    Carregando ocorrências...
+                </div>
+
+                <div id="listaOcorrencias" class="lista-ocorrencias"></div>
+
+                <div id="semOcorrencias" class="mensagem" hidden>
+                    <div class="icone-vazio">🔧</div>
+                    <h4>Nenhuma ocorrência encontrada</h4>
+                    <p>As ocorrências relacionadas à Manutenção aparecerão aqui.</p>
+                </div>
+
+                <div id="erroOcorrencias" class="mensagem erro" hidden>
+                    Não foi possível carregar as ocorrências. Verifique sua conexão e as permissões do Firebase.
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="ocorrencias.js"></script>
+</body>
+</html>
