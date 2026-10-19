@@ -7,6 +7,7 @@ const paginas = [
   "historico.html",
   "atendimento/atendimento.html",
   "atendimento/atendimento-comunicacoes.html",
+  "atendimento/ocorrencias.html",
   "CCO/CCO.html",
   "CCO/CCO-comunicacoes.html",
   "CCO/ocorrencias.html",

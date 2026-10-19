@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iCOA — Ocorrências do Atendimento</title>
+    <link rel="stylesheet" href="ocorrencias.css">
+</head>
+<body>
+
+    <div class="banner"></div>
+
+    <header class="topo">
+        <div class="logo">
+            <h1>iCOA</h1>
+            <span>Integração da Comunicação Operacional Azul</span>
+        </div>
+
+        <div class="usuario">
+            <div class="informacoes-usuario">
+                <strong>ATENDIMENTO</strong>
+                <span>Consulta de ocorrências</span>
+            </div>
+            <a href="../index.html" class="botao-sair">Sair</a>
+        </div>
+    </header>
+
+    <div class="estrutura">
+        <aside class="menu">
+            <nav>
+                <a href="atendimento.html">Início</a>
+                <a href="ocorrencias.html" class="menu-ativo">Ocorrências</a>
+                <a href="atendimento-comunicacoes.html">Comunicações</a>
+                <a href="../historico.html">Histórico</a>
+            </nav>
+        </aside>
+
+        <main class="conteudo">
+            <section class="titulo-pagina">
+                <div>
+                    <h2>Ocorrências operacionais</h2>
+                    <p>
+                        Consulte as ocorrências relacionadas ao Atendimento
+                        e acompanhe suas atualizações.
+                    </p>
+                </div>
+
+                <div class="status-sistema">
+                    <span class="bolinha"></span>
+                    Sistema operacional
+                </div>
+            </section>
+
+            <section class="resumo">
+                <article class="card-resumo">
+                    <span class="icone">✈️</span>
+                    <div>
+                        <span class="numero" id="contadorOcorrencias">0</span>
+                        <p>Ocorrências ativas</p>
+                    </div>
+                </article>
+
+                <article class="card-resumo">
+                    <span class="icone">🔴</span>
+                    <div>
+                        <span class="numero" id="contadorAlta">0</span>
+                        <p>Gravidade alta ativa</p>
+                    </div>
+                </article>
+
+                <article class="card-resumo">
+                    <span class="icone">📋</span>
+                    <div>
+                        <span class="numero" id="contadorTotal">0</span>
+                        <p>Total de ocorrências encontradas</p>
+                    </div>
+                </article>
+            </section>
+
+            <section class="secao">
+                <div class="cabecalho-secao">
+                    <div>
+                        <h3>Buscar e filtrar</h3>
+                        <p>
+                            Pesquise por voo, aeronave, descrição ou setor.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="filtros">
+                    <input
+                        type="search"
+                        id="pesquisa"
+                        placeholder="Buscar por voo, aeronave ou descrição..."
+                        aria-label="Buscar ocorrências"
+                    >
+
+                    <select id="filtroStatus" aria-label="Filtrar por status">
+                        <option value="Todas">Todos os status</option>
+                        <option value="Ativas">Somente ativas</option>
+                        <option value="Encerrada">Encerradas</option>
+                    </select>
+
+                    <select id="filtroGravidade" aria-label="Filtrar por gravidade">
+                        <option value="Todas">Todas as gravidades</option>
+                        <option value="Alta">Gravidade alta</option>
+                        <option value="Média">Gravidade média</option>
+                        <option value="Baixa">Gravidade baixa</option>
+                    </select>
+                </div>
+
+                <p id="mensagemErro" class="mensagem-erro" hidden>
+                    Não foi possível carregar as ocorrências.
+                    Verifique a conexão e as permissões do Firebase.
+                </p>
+
+                <div class="lista-ocorrencias" id="listaOcorrencias">
+                    <div class="sem-ocorrencias" id="semOcorrencias">
+                        <div class="icone-vazio">✈️</div>
+                        <h4>Carregando ocorrências...</h4>
+                        <p>As informações serão exibidas nesta área.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="ocorrencias.js"></script>
+</body>
+</html>
