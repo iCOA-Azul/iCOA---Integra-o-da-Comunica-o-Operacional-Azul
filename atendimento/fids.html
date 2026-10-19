@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>iCOA — FIDS</title>
+
+    <link rel="stylesheet" href="fids.css">
+    <script type="module" src="fids.js"></script>
+</head>
+
+<body>
+    <header class="topo">
+        <div class="marca">
+            <span class="marca-icone">✈</span>
+            <div>
+                <h1>iCOA <span>FIDS</span></h1>
+                <p>Flight Information Display System</p>
+            </div>
+        </div>
+
+        <a class="voltar" href="atendimento.html">
+            ← Voltar ao Atendimento
+        </a>
+    </header>
+
+    <main class="conteudo">
+
+        <!-- GERENCIAMENTO DOS VOOS -->
+        <section class="painel-gerenciamento">
+            <div class="titulo-secao">
+                <div>
+                    <span class="etiqueta">ÁREA INTERNA</span>
+                    <h2>Gerenciamento de voos</h2>
+                    <p>
+                        Cadastre e atualize as informações que serão
+                        exibidas aos passageiros.
+                    </p>
+                </div>
+            </div>
+
+            <div id="avisoSistema" class="aviso" role="status">
+                Verificando autenticação...
+            </div>
+
+            <form id="formFids" class="formulario" hidden>
+                <input type="hidden" id="vooId">
+
+                <div class="campos">
+                    <div class="campo">
+                        <label for="numeroVoo">Número do voo *</label>
+                        <input
+                            id="numeroVoo"
+                            type="text"
+                            placeholder="Ex.: AD1234"
+                            maxlength="15"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="origem">Origem *</label>
+                        <input
+                            id="origem"
+                            type="text"
+                            placeholder="Ex.: Campinas (VCP)"
+                            maxlength="80"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="destino">Destino *</label>
+                        <input
+                            id="destino"
+                            type="text"
+                            placeholder="Ex.: Recife (REC)"
+                            maxlength="80"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="statusVoo">Situação do voo *</label>
+                        <select id="statusVoo" required>
+                            <option value="Programado">Programado</option>
+                            <option value="Embarque">Embarque</option>
+                            <option value="Em acompanhamento">
+                                Em acompanhamento
+                            </option>
+                            <option value="Atrasado">Atrasado</option>
+                            <option value="Cancelado">Cancelado</option>
+                            <option value="Concluído">Concluído</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="horario">Horário previsto</label>
+                        <input
+                            id="horario"
+                            type="time"
+                        >
+                    </div>
+
+                    <div class="campo campo-completo">
+                        <label for="mensagem">
+                            Mensagem para o passageiro
+                        </label>
+                        <textarea
+                            id="mensagem"
+                            rows="3"
+                            maxlength="400"
+                            placeholder="Digite uma informação confirmada para exibição no telão."
+                        ></textarea>
+                    </div>
+                </div>
+
+                <p class="nota-formulario">
+                    Divulgue somente informações confirmadas e autorizadas.
+                </p>
+
+                <div class="acoes-formulario">
+                    <button type="submit" id="botaoSalvar" class="botao-principal">
+                        Publicar no telão
+                    </button>
+
+                    <button
+                        type="button"
+                        id="botaoCancelar"
+                        class="botao-secundario"
+                        hidden
+                    >
+                        Cancelar edição
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- TELÃO VISÍVEL -->
+        <section class="painel-telao">
+            <div class="cabecalho-telao">
+                <div>
+                    <span class="etiqueta etiqueta-clara">
+                        INFORMAÇÕES DE VOOS
+                    </span>
+                    <h2>Voos e atualizações</h2>
+                    <p>Acompanhe as informações divulgadas pela equipe.</p>
+                </div>
+
+                <div class="indicador">
+                    <span class="ponto"></span>
+                    <span>Atualização automática</span>
+                </div>
+            </div>
+
+            <div class="resumo">
+                <div class="resumo-item">
+                    <span>Voos publicados</span>
+                    <strong id="totalVoos">0</strong>
+                </div>
+
+                <div class="resumo-item">
+                    <span>Em acompanhamento</span>
+                    <strong id="totalAcompanhamento">0</strong>
+                </div>
+            </div>
+
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Voo</th>
+                            <th>Origem</th>
+                            <th>Destino</th>
+                            <th>Horário</th>
+                            <th>Situação</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="listaVoos">
+                        <tr>
+                            <td colspan="5" class="estado-vazio">
+                                Aguardando informações...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="mensagemVazia" class="mensagem-vazia" hidden>
+                <span class="icone-vazio">✈</span>
+                <h3>Nenhum voo publicado</h3>
+                <p>
+                    As informações dos voos aparecerão aqui
+                    após serem cadastradas pela equipe.
+                </p>
+            </div>
+
+            <div class="mensagem-passageiro">
+                <span class="icone-info">i</span>
+                <p id="mensagemDestaque">
+                    Consulte as informações disponíveis.
+                    Novas atualizações serão exibidas quando publicadas.
+                </p>
+            </div>
+
+            <p class="ultima-atualizacao" id="ultimaAtualizacao">
+                Aguardando a primeira atualização.
+            </p>
+        </section>
+
+        <p class="rodape">
+            iCOA — Integração da Comunicação Operacional Azul
+        </p>
+    </main>
+</body>
+</html>
