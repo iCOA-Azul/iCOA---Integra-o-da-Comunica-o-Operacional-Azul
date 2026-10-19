@@ -216,8 +216,10 @@ async function marcarMensagensComoLidas() {
                 { lida: true }
             );
         }
-    } catch (erro) {
-        console.error("Erro ao marcar mensagens como lidas:", erro);
+  //  } catch (erro) {
+      //  console.error("Erro ao marcar mensagens como lidas:", erro);
+      console.error("Erro ao enviar mensagem:", erro);
+console.log("Conta autenticada:", auth.currentUser?.email);
     } finally {
         marcandoComoLidas = false;
     }
