@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>iCOA — Ocorrências do Comercial</title>
+
+    <link rel="stylesheet" href="ocorrencias.css">
+</head>
+<body>
+
+    <div class="search-box"></div>
+
+    <header class="topo">
+        <div class="logo">
+            <h1>iCOA</h1>
+            <span>Integração da Comunicação Operacional Azul</span>
+        </div>
+
+        <div class="usuario">
+            <div class="informacoes-usuario">
+                <strong>COMERCIAL</strong>
+                <span>Setor Comercial</span>
+            </div>
+
+            <a href="../index.html" class="botao-sair">Sair</a>
+        </div>
+    </header>
+
+    <div class="estrutura">
+
+        <aside class="menu">
+            <nav>
+                <a href="comercial.html">Início</a>
+                <a href="ocorrencias.html" class="menu-ativo">Ocorrências</a>
+                <a href="comercial.html#listaAvisos">Avisos</a>
+                <a href="comercial-comunicacoes.html">Comunicações</a>
+                <a href="../historico.html">Histórico</a>
+            </nav>
+        </aside>
+
+        <main class="conteudo">
+
+            <div class="titulo-pagina">
+                <div>
+                    <h2>Ocorrências do Comercial</h2>
+                    <p>
+                        Acompanhe as ocorrências comerciais e as
+                        ocorrências direcionadas a este setor.
+                    </p>
+                </div>
+
+                <div class="status-sistema">
+                    <span class="bolinha"></span>
+                    Sistema operacional
+                </div>
+            </div>
+
+            <!-- RESUMO -->
+            <section class="resumo">
+
+                <div class="card-resumo">
+                    <span class="icone">📋</span>
+                    <div>
+                        <span class="numero" id="contadorOcorrencias">0</span>
+                        <p>Ocorrências em andamento</p>
+                    </div>
+                </div>
+
+                <div class="card-resumo">
+                    <span class="icone">🔴</span>
+                    <div>
+                        <span class="numero" id="contadorAlta">0</span>
+                        <p>Gravidade alta ativa</p>
+                    </div>
+                </div>
+
+                <div class="card-resumo">
+                    <span class="icone">🔄</span>
+                    <div>
+                        <span class="numero" id="contadorAtualizacao">
+                            Tempo real
+                        </span>
+                        <p>Atualização automática</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- LISTA E PESQUISA -->
+            <section class="secao">
+
+                <div class="cabecalho-secao">
+                    <div>
+                        <h3>Lista de ocorrências</h3>
+                        <p>
+                            Pesquise e filtre as ocorrências relacionadas
+                            ao Comercial.
+                        </p>
+                    </div>
+
+                    <a class="botao-voltar" href="comercial.html">
+                        Voltar ao início
+                    </a>
+                </div>
+
+                <!-- PESQUISA E FILTROS -->
+                <div class="filtros">
+
+                    <input
+                        type="search"
+                        id="pesquisa"
+                        placeholder="Buscar por voo, aeronave ou descrição..."
+                        aria-label="Buscar ocorrências"
+                    >
+
+                    <select id="filtroStatus" aria-label="Filtrar por status">
+                        <option value="Todas">Todos os status</option>
+                        <option value="Ativas">Somente ativas</option>
+                        <option value="Encerrada">Encerradas</option>
+                    </select>
+
+                    <select
+                        id="filtroGravidade"
+                        aria-label="Filtrar por gravidade"
+                    >
+                        <option value="Todas">Todas as gravidades</option>
+                        <option value="Alta">Gravidade alta</option>
+                        <option value="Média">Gravidade média</option>
+                        <option value="Baixa">Gravidade baixa</option>
+                    </select>
+
+                </div>
+
+                <!-- ERROS DO FIREBASE -->
+                <div
+                    id="mensagemErro"
+                    class="mensagem-erro"
+                    role="alert"
+                    hidden
+                >
+                    Não foi possível carregar as ocorrências.
+                    Verifique sua conexão e as permissões do Firebase.
+                </div>
+
+                <!-- CARREGAMENTO E LISTA -->
+                <div class="lista-ocorrencias" id="listaOcorrencias">
+
+                    <div class="sem-ocorrencias" id="semOcorrencias">
+                        <div class="icone-vazio">📋</div>
+                        <h4>Carregando ocorrências...</h4>
+                        <p>
+                            As ocorrências do Comercial aparecerão
+                            nesta área.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <script type="module" src="ocorrencias.js"></script>
+
+</body>
+</html>
