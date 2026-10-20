@@ -608,6 +608,129 @@ button:disabled {
     color: white;
 }
 
+
+
+
+
+/* BOTÕES DE AÇÃO DAS OCORRÊNCIAS */
+
+.acoes-ocorrencia {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: auto;
+    align-self: center;
+}
+
+/* ESTILO BASE DOS BOTÕES */
+
+.botao-encerrar,
+.botao-excluir {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 11px 15px;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+/* BOTÃO ENCERRAR — VERDE */
+
+.botao-encerrar {
+    background: #ecfdf3;
+    color: #027a48;
+    border: 1px solid #abefc6;
+}
+
+.botao-encerrar:hover {
+    background: #12b76a;
+    color: #ffffff;
+    border-color: #12b76a;
+    box-shadow: 0 4px 10px rgba(18, 183, 106, 0.18);
+    transform: translateY(-2px);
+}
+
+/* BOTÃO EXCLUIR — VERMELHO */
+
+.botao-excluir {
+    background: #fff1f0;
+    color: #b42318;
+    border: 1px solid #fecdca;
+}
+
+.botao-excluir:hover {
+    background: #d92d20;
+    color: #ffffff;
+    border-color: #d92d20;
+    box-shadow: 0 4px 10px rgba(217, 45, 32, 0.18);
+    transform: translateY(-2px);
+}
+
+/* CLIQUE E ESTADO DESABILITADO */
+
+.botao-encerrar:active,
+.botao-excluir:active {
+    transform: scale(0.97);
+}
+
+.botao-encerrar:disabled,
+.botao-excluir:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* CELULARES E TELAS MENORES */
+
+@media (max-width: 768px) {
+    .acoes-ocorrencia {
+        width: 100%;
+        margin-left: 0;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding-top: 12px;
+    }
+
+    .botao-encerrar,
+    .botao-excluir {
+        flex: 1;
+        min-width: 120px;
+        padding: 11px 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .acoes-ocorrencia {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .botao-encerrar,
+    .botao-excluir {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
 /* ACESSIBILIDADE */
 
 button:focus-visible,

@@ -5,7 +5,10 @@ import {
     collection,
     onSnapshot,
     addDoc,
-    serverTimestamp
+    serverTimestamp,
+    updateDoc,
+    deleteDoc,
+    doc
 } from "firebase/firestore";
 
 import { onAuthStateChanged } from "firebase/auth";
@@ -25,6 +28,7 @@ const formOcorrencia = document.getElementById("formOcorrenciaAtendimento");
 const botaoCancelar = document.getElementById("cancelarFormularioOcorrencia");
 
 const campoVoo = document.getElementById("vooOcorrencia");
+const campoAeronave = document.getElementById("aeronaveOcorrencia");
 const campoTipo = document.getElementById("tipoOcorrencia");
 const campoGravidade = document.getElementById("gravidadeOcorrencia");
 const campoDescricao = document.getElementById("descricaoOcorrencia");
@@ -65,11 +69,12 @@ if (formOcorrencia) {
         }
 
         const voo = campoVoo.value.trim();
+        const aeronave = campoAeronave.value.trim();
         const tipo = campoTipo.value;
         const gravidade = campoGravidade.value;
         const descricao = campoDescricao.value.trim();
 
-        if (!voo || !tipo || !gravidade || !descricao) {
+        if (!voo || !aeronave ||  !tipo || !gravidade || !descricao) {
             alert("Preencha todos os campos antes de registrar.");
             return;
         }
@@ -86,7 +91,7 @@ if (formOcorrencia) {
         try {
             await addDoc(collection(db, "ocorrencias"), {
                 voo: voo,
-                aeronave: "Não informada",
+                aeronave: aeronave,
                 tipo: tipo,
                 gravidade: gravidade,
                 descricao: descricao,
@@ -219,10 +224,16 @@ function criarCard(ocorrencia) {
             </div>
         </div>
 
-        <button class="botao-ver" type="button">Ver detalhes</button>
+        <div class="acoes-ocorrencia">
+            <button class="botao-ver" type="button">Ver detalhes</button>
+        </div>
     `;
 
     listaOcorrencias.appendChild(card);
+
+    // ========================================
+    // VER DETALHES
+    // ========================================
 
     card.querySelector(".botao-ver").addEventListener("click", function () {
         alert(
@@ -233,10 +244,115 @@ function criarCard(ocorrencia) {
             "\nGravidade: " + (ocorrencia.gravidade || "Não informada") +
             "\nDescrição: " + (ocorrencia.descricao || "Sem descrição") +
             "\nSetor responsável: " + (ocorrencia.setor || "Não informado") +
-            "\nÁreas envolvidas: " + (ocorrencia.areas || []).join(", ") +
+            "\nÁreas envolvidas: " +
+            (Array.isArray(ocorrencia.areas)
+                ? ocorrencia.areas.join(", ")
+                : "Não informadas") +
             "\nStatus: " + (ocorrencia.status || "Em andamento")
         );
     });
+
+    // ========================================
+    // ENCERRAR E EXCLUIR A PRÓPRIA OCORRÊNCIA
+    // ========================================
+
+    const usuarioAtual = auth.currentUser;
+
+    // Os botões só aparecem para quem criou a ocorrência.
+    if (
+        usuarioAtual &&
+        ocorrencia.criadoPorUid === usuarioAtual.uid
+    ) {
+        const areaBotoes = card.querySelector(".acoes-ocorrencia");
+
+        // BOTÃO ENCERRAR
+        const botaoEncerrar = document.createElement("button");
+
+        botaoEncerrar.type = "button";
+        botaoEncerrar.className = "botao-encerrar";
+        botaoEncerrar.textContent = "Encerrar ocorrência";
+
+        botaoEncerrar.addEventListener("click", async function () {
+            const confirmou = confirm(
+                "Deseja realmente encerrar esta ocorrência?"
+            );
+
+            if (!confirmou) return;
+
+            botaoEncerrar.disabled = true;
+            botaoEncerrar.textContent = "Encerrando...";
+
+            try {
+                await updateDoc(
+                    doc(db, "ocorrencias", ocorrencia.id),
+                    {
+                        status: "Encerrada"
+                    }
+                );
+
+                alert("Ocorrência encerrada com sucesso!");
+
+                // A atualização em tempo real retirará o cartão
+                // da lista de ocorrências ativas.
+
+            } catch (erro) {
+                console.error("Erro ao encerrar ocorrência:", erro);
+
+                alert(
+                    "Não foi possível encerrar a ocorrência.\n\n" +
+                    "Verifique as permissões do Firebase."
+                );
+
+                botaoEncerrar.disabled = false;
+                botaoEncerrar.textContent = "Encerrar ocorrência";
+            }
+        });
+
+        areaBotoes.appendChild(botaoEncerrar);
+
+        // BOTÃO EXCLUIR
+        const botaoExcluir = document.createElement("button");
+
+        botaoExcluir.type = "button";
+        botaoExcluir.className = "botao-excluir";
+        botaoExcluir.textContent = "Excluir";
+
+        botaoExcluir.addEventListener("click", async function () {
+            const confirmou = confirm(
+                "Tem certeza de que deseja excluir esta ocorrência? " +
+                "Esta ação não poderá ser desfeita."
+            );
+
+            if (!confirmou) return;
+
+            botaoExcluir.disabled = true;
+            botaoExcluir.textContent = "Excluindo...";
+
+            try {
+                await deleteDoc(
+                    doc(db, "ocorrencias", ocorrencia.id)
+                );
+
+                alert("Ocorrência excluída com sucesso!");
+
+                // A atualização em tempo real retirará o cartão
+                // após a exclusão do documento.
+
+            } catch (erro) {
+                console.error("Erro ao excluir ocorrência:", erro);
+
+                alert(
+                    "Não foi possível excluir a ocorrência.\n\n" +
+                    "Verifique as permissões do Firebase."
+                );
+
+                botaoExcluir.disabled = false;
+                botaoExcluir.textContent = "Excluir";
+            }
+        });
+
+        areaBotoes.appendChild(botaoExcluir);
+    }
 }
 
 // ========================================
@@ -278,17 +394,19 @@ function ouvirContadorComunicacoes() {
 // ========================================
 
 onAuthStateChanged(auth, function (usuario) {
-    if (!usuario) {
-        window.location.href = "../index.html";
-        return;
-    }
-
     if (pararDeEscutarOcorrencias) {
         pararDeEscutarOcorrencias();
+        pararDeEscutarOcorrencias = null;
     }
 
     if (pararDeEscutarComunicacoes) {
         pararDeEscutarComunicacoes();
+        pararDeEscutarComunicacoes = null;
+    }
+
+    if (!usuario) {
+        window.location.href = "../index.html";
+        return;
     }
 
     pararDeEscutarOcorrencias = onSnapshot(

@@ -717,9 +717,36 @@ line-height: 1.5;
     }
 }
 
+/* BOTÃO VER DETALHES E EXCLUIR À DIREITA DO CARTÃO */
 
+.ocorrencia {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
+.informacoes-ocorrencia {
+    flex: 1;
+    min-width: 0;
+}
 
+.acoes-ocorrencia {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 8px;
+    margin-left: auto;
+    padding-left: 20px;
+    flex-shrink: 0;
+}
+
+.acoes-ocorrencia .botao-ver {
+    width: 125px;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+}
 
 
 /* RESPONSIVIDADE */

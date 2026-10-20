@@ -282,8 +282,9 @@ function criarCard(ocorrencia) {
                 )}</span>
             </div>
 
-            <button class="botao-ver" type="button">Ver detalhes</button>
-        </div>
+        <div class="acoes-ocorrencia">
+    <button class="botao-ver" type="button">Ver detalhes</button>
+</div>
     `;
 
     // VER DETALHES DA OCORRÊNCIA
@@ -349,8 +350,8 @@ function criarCard(ocorrencia) {
             }
         });
 
-        card.querySelector(".informacoes-ocorrencia")
-            .appendChild(botaoExcluir);
+       card.querySelector(".acoes-ocorrencia")
+    .appendChild(botaoExcluir);
     }
 
     listaOcorrencias.appendChild(card);
